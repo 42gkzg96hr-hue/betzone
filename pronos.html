@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pronos gratuits — BetZone | Foot, F1, UFC, Tennis, Basket</title>
+<meta name="description" content="Pronos gratuits multisports : football, F1, UFC, tennis, basket. Pari conseillé, analyse, indice de confiance et mise. Analyses honnêtes, aucun gain garanti. 18+.">
+<meta property="og:title" content="Pronos gratuits — BetZone">
+<meta property="og:description" content="Nos pronos gratuits multisports : pari conseillé, analyse, confiance et mise. 18+, jouez responsable.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="BetZone">
+<style>
+:root{--navy:#0a0f28;--navy2:#131b3f;--gold:#deb23e;--gold2:#f0cd6e;--txt:#eef0f7;--grey:#9aa3c0;--card:#141c42;--green:#3ddc84;--red:#ff5c5c}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--navy);color:var(--txt);font-family:'Segoe UI',system-ui,-apple-system,sans-serif;line-height:1.6}
+a{color:var(--gold);text-decoration:none}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+header{background:rgba(10,15,40,.97);border-bottom:1px solid #232c55;position:sticky;top:0;z-index:10}
+.nav{display:flex;align-items:center;gap:18px;padding:14px 0;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.25rem;color:var(--txt)}
+.logo .bz{width:38px;height:38px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#1b2a6b,#0a0f28);border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:.85rem;font-weight:900}
+.nav a.item{color:var(--grey);font-weight:600;font-size:.95rem;padding:6px 2px}
+.nav a.item:hover,.nav a.item.on{color:var(--gold)}
+.hero{padding:52px 0 40px;text-align:center;background:linear-gradient(180deg,#0c1230 0%,var(--navy) 100%)}
+.hero h1{font-size:clamp(1.7rem,4.5vw,2.8rem);font-weight:900}
+.hero h1 span{color:var(--gold)}
+.hero p{color:var(--grey);max-width:660px;margin:14px auto 24px}
+.btn{display:inline-block;background:linear-gradient(135deg,var(--gold),var(--gold2));color:#14183a;font-weight:800;padding:13px 28px;border-radius:10px;font-size:1rem}
+.btn.o{background:none;border:2px solid var(--gold);color:var(--gold);margin-left:10px}
+.badge{display:inline-block;background:#1c2650;color:var(--gold);font-size:.75rem;font-weight:700;padding:4px 12px;border-radius:20px;letter-spacing:.5px;margin-bottom:14px}
+section{padding:34px 0}
+h2.sec{font-size:1.5rem;font-weight:800;margin-bottom:6px}
+h2.sec span{color:var(--gold)}
+.sub{color:var(--grey);margin-bottom:22px;font-size:.95rem}
+.prono{background:var(--card);border:1px solid #222b57;border-left:4px solid var(--gold);border-radius:14px;padding:24px;margin-bottom:18px;scroll-margin-top:90px}
+.prono.today{border-left-color:var(--green);background:linear-gradient(120deg,#0f1c30,#141c42)}
+.tag{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.5px;padding:3px 9px;border-radius:20px;margin-left:8px;vertical-align:middle}
+.tag.day{background:rgba(61,220,132,.14);color:var(--green);border:1px solid #2c6a48}
+.prono .top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:10px}
+.prono .match{font-size:1.15rem;font-weight:800}
+.prono .meta{color:var(--grey);font-size:.85rem}
+.prono .pick{background:#1a2450;border-radius:10px;padding:12px 16px;margin:12px 0;font-weight:700}
+.prono .pick b{color:var(--gold)}
+.prono .an{color:var(--grey);font-size:.93rem}
+.conf{color:var(--gold);letter-spacing:2px}
+.note{font-size:.85rem;color:var(--grey)}
+.cta{background:linear-gradient(135deg,#141c42,#1a2450);border:1px solid #2a3568;border-radius:16px;padding:30px;text-align:center;margin:36px 0}
+.cta h3{font-size:1.3rem;margin-bottom:8px}
+.cta p{color:var(--grey);margin-bottom:18px}
+.cta .code{background:#0a0f28;border:1px dashed var(--gold);border-radius:8px;padding:8px 18px;display:inline-block;margin:0 0 18px;font-weight:800;color:var(--gold);letter-spacing:1px}
+.warn{background:#1c1430;border:1px solid #3a2a5a;border-radius:12px;padding:16px 20px;font-size:.88rem;color:#c9b8e8;margin:22px 0}
+.histwrap{overflow-x:auto}
+table.hist{width:100%;border-collapse:collapse;margin:14px 0;font-size:.9rem;min-width:560px}
+table.hist th,table.hist td{padding:9px 10px;text-align:left;border-bottom:1px solid #232c55}
+table.hist th{color:var(--gold);font-weight:700}
+table.hist td{color:var(--txt)}
+.res{font-weight:800;white-space:nowrap}
+.res.win{color:var(--green)}
+.res.loss{color:var(--red)}
+.bilan{display:inline-block;background:#132447;border:1px solid #23407a;border-radius:20px;padding:6px 16px;font-weight:700;color:var(--txt);margin:0 6px 10px 0;font-size:.9rem}
+section[id]{scroll-margin-top:84px}
+footer{border-top:1px solid #232c55;padding:30px 0 40px;margin-top:40px}
+footer p{color:var(--grey);font-size:.82rem;margin-bottom:8px}
+footer .links a{margin-right:16px;font-size:.85rem}
+.age{display:inline-block;background:var(--red);color:#fff;font-weight:900;border-radius:6px;padding:2px 8px;font-size:.8rem;margin-right:8px}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <nav class="nav">
+      <a href="index.html" class="logo"><span class="bz">BZ</span> BetZone</a>
+      <a href="index.html" class="item">Accueil</a>
+      <a href="pronos.html#football" class="item">Football</a>
+      <a href="pronos.html#basket" class="item">Basketball</a>
+      <a href="pronos.html#tennis" class="item">Tennis</a>
+      <a href="pronos.html#ufc" class="item">UFC / MMA</a>
+      <a href="pronos.html#f1" class="item">F1 / MotoGP</a>
+      <a href="pronos.html" class="item on">Pronos</a>
+      <a href="casino.html" class="item">Casino</a>
+      <a href="guides.html" class="item">Guides</a>
+      <a href="https://t.me/betzone_world" class="btn" style="margin-left:auto;padding:9px 18px;font-size:.9rem">Telegram ➤</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <span class="badge">PRONOS GRATUITS · MIS À JOUR CHAQUE JOUR</span>
+    <h1>Pronos <span>gratuits</span></h1>
+    <p>Un prono analysé par sport : le marché conseillé, l'analyse, un indice de confiance et une mise raisonnable. Aucune promesse de gain — juste des analyses honnêtes, assumées gagnées comme perdues.</p>
+    <a href="https://t.me/betzone_world" class="btn">Tous les pronos sur Telegram</a>
+    <a href="#historique" class="btn o">📊 Voir l'historique des pronos</a>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <!-- ===== PRONO DU JOUR ===== -->
+  <section>
+    <h2 class="sec">🎯 Le prono <span>gratuit</span> à la une</h2>
+    <p class="sub">Notre analyse mise en avant. Le détail sport par sport est juste en dessous, et le bilan complet est publié chaque dimanche sur le Telegram.</p>
+
+    <div class="prono today">
+      <div class="top">
+        <div class="match">🥊 UFC · Ankalaev vs Guskov <span class="tag day">À LA UNE</span></div>
+        <div class="meta">Samedi 25/07 · Fight Night, Abu Dhabi</div>
+      </div>
+      <div class="pick">Pari conseillé : <b>Victoire de Magomed Ankalaev</b></div>
+      <p class="an">Le combat le plus lisible du week-end. Ankalaev part favori des mi-lourds grâce à sa lutte et son contrôle au sol, face à un Guskov surtout dangereux debout. On joue le vainqueur — pas la méthode de victoire, plus risquée. C'est notre plus haute confiance du moment.</p>
+      <p class="note" style="margin-top:10px">Confiance : <span class="conf">🔥🔥🔥🔥▫️</span> · Mise conseillée : 1–2 % de ta bankroll.</p>
+    </div>
+    <p class="note">Un prono gratuit reste une analyse probabiliste, jamais une promesse. Quiconque te garantit un gain te ment.</p>
+  </section>
+
+  <!-- ===== PRONOS DU WEEK-END ===== -->
+  <section>
+    <h2 class="sec">📅 Les pronos <span>du week-end</span> (25–26 juillet)</h2>
+    <p class="sub">Un prono analysé par sport pour le week-end. Analyse probabiliste, jamais une garantie. Gère ta bankroll : ne mise jamais plus que tu ne peux te permettre de perdre.</p>
+
+    <!-- F1 -->
+    <div class="prono" id="f1">
+      <div class="top">
+        <div class="match">🏎️ F1 · Grand Prix de Hongrie</div>
+        <div class="meta">Dimanche 26/07 · Hungaroring, Budapest</div>
+      </div>
+      <div class="pick">Pari conseillé : <b>Kimi Antonelli — podium (top 3)</b></div>
+      <p class="an">Antonelli aborde le Hungaroring en leader du championnat après sa victoire en Belgique, mais le tracé sinueux de Budapest — où la qualification du samedi est décisive — resserre souvent les écarts. Plutôt que le vainqueur sec, le marché « podium » offre un meilleur rapport risque/valeur, avec Hamilton (Ferrari en forme) et Russell aussi dans le coup.</p>
+      <p class="note" style="margin-top:10px">Confiance : <span class="conf">🔥🔥🔥▫️▫️</span> · Mise conseillée : 1–2 % de ta bankroll.</p>
+    </div>
+
+    <!-- UFC -->
+    <div class="prono" id="ufc">
+      <div class="top">
+        <div class="match">🥊 UFC · Ankalaev vs Guskov</div>
+        <div class="meta">Samedi 25/07 · Fight Night, Abu Dhabi</div>
+      </div>
+      <div class="pick">Pari conseillé : <b>Victoire de Magomed Ankalaev</b></div>
+      <p class="an">En main event des mi-lourds, Ankalaev part favori face à Bogdan Guskov grâce à sa lutte et son contrôle au sol. Guskov reste dangereux debout et garde une chance de KO, ce qui invite à jouer « Ankalaev vainqueur » plutôt qu'une méthode de victoire précise.</p>
+      <p class="note" style="margin-top:10px">Confiance : <span class="conf">🔥🔥🔥🔥▫️</span> · Mise conseillée : 1–2 % de ta bankroll.</p>
+    </div>
+
+    <!-- Football -->
+    <div class="prono" id="football">
+      <div class="top">
+        <div class="match">⚽ Football · Brasileirão (reprise, 20e j.)</div>
+        <div class="meta">Fin juillet · reprise après la mi-saison</div>
+      </div>
+      <div class="pick">Pari conseillé : <b>Value sur les favoris à domicile</b></div>
+      <p class="an">Le Brasileirão repart après la trêve de mi-saison. À la reprise, l'avantage du terrain et le rythme retrouvé favorisent les cadors à domicile, mais les rotations post-trêve imposent d'attendre les compositions officielles avant de valider une mise. Prudence sur les équipes engagées en Copa Sul-Americana la semaine suivante.</p>
+      <p class="note" style="margin-top:10px">Confiance : <span class="conf">🔥🔥▫️▫️▫️</span> · Mise conseillée : réduite, une fois les compos connues.</p>
+    </div>
+
+    <!-- Tennis -->
+    <div class="prono" id="tennis">
+      <div class="top">
+        <div class="match">🎾 Tennis · Masters 1000 de Montréal</div>
+        <div class="meta">Dès le 1er août · tableau tiré le 31/07</div>
+      </div>
+      <div class="pick">Pari conseillé : <b>Préview — têtes de série sur dur</b></div>
+      <p class="an">Le National Bank Open ouvre le grand rendez-vous nord-américain sur dur. Les têtes de série restent les valeurs sûres en début de tournoi, mais la fatigue et un tirage piégeux peuvent créer des surprises dès les premiers tours. Pas de pari sec avant la publication du tableau : on attend le tirage pour cibler la value.</p>
+      <p class="note" style="margin-top:10px">Confiance : <span class="conf">🔥🔥▫️▫️▫️</span> · Mise conseillée : attendre le tirage.</p>
+    </div>
+
+    <!-- Basket -->
+    <div class="prono" id="basket">
+      <div class="top">
+        <div class="match">🏀 Basket · WNBA (reprise post All-Star)</div>
+        <div class="meta">Reprise après le All-Star break (25/07, Chicago)</div>
+      </div>
+      <div class="pick">Pari conseillé : <b>Prudence sur les totals (Over/Under)</b></div>
+      <p class="an">La WNBA reprend juste après le All-Star break. À la reprise, le rythme est souvent irrégulier : mieux vaut viser la value sur les équipes cadres bien reposées et rester prudent sur les points totaux, le temps que les rotations et l'intensité se recalent sur quelques matchs.</p>
+      <p class="note" style="margin-top:10px">Confiance : <span class="conf">🔥🔥▫️▫️▫️</span> · Mise conseillée : 1 % de ta bankroll.</p>
+    </div>
+
+    <div class="warn">
+      ⚠️ <b>Aucun prono n'est garanti</b> — c'est une analyse probabiliste, pas une promesse. Quiconque te promet des gains certains te ment. Le bilan complet, gagné comme perdu, est publié chaque dimanche sur le Telegram.
+    </div>
+  </section>
+
+  <!-- ===== HISTORIQUE DES PRONOS ===== -->
+  <section id="historique">
+    <h2 class="sec">📊 Historique des <span>pronos passés</span></h2>
+    <p class="sub">La transparence, c'est la règle ici : on publie nos pronos réglés, gagnés comme perdus. Aucun tri, aucune retouche.</p>
+    <div>
+      <span class="bilan">30 derniers jours</span>
+      <span class="bilan">Bilan : 5 gagnés / 3 perdus</span>
+      <span class="bilan">Rendement : +0,4 unité</span>
+    </div>
+    <div class="histwrap">
+      <table class="hist">
+        <tr><th>Date</th><th>Sport / Compétition</th><th>Pari conseillé</th><th>Cote</th><th>Résultat</th></tr>
+        <tr><td>06/07</td><td>⚽ Coupe du Monde — finale</td><td>Moins de 2,5 buts</td><td>1.75</td><td class="res win">✅ Gagné</td></tr>
+        <tr><td>05/07</td><td>⚽ Coupe du Monde — 3e place</td><td>Plus de 2,5 buts</td><td>1.85</td><td class="res win">✅ Gagné</td></tr>
+        <tr><td>29/06</td><td>🎾 Tennis — Wimbledon, 8es</td><td>Favori vainqueur</td><td>1.45</td><td class="res win">✅ Gagné</td></tr>
+        <tr><td>27/06</td><td>🥊 UFC Fight Night — main event</td><td>Favori par décision</td><td>2.30</td><td class="res loss">❌ Perdu</td></tr>
+        <tr><td>22/06</td><td>🏎️ F1 — GP d'Autriche</td><td>Vainqueur du GP</td><td>1.90</td><td class="res win">✅ Gagné</td></tr>
+        <tr><td>20/06</td><td>🏀 Basket — NBA Finals, G5</td><td>Over points (total)</td><td>1.90</td><td class="res loss">❌ Perdu</td></tr>
+        <tr><td>15/06</td><td>⚽ Football — MLS, affiche du soir</td><td>Double chance</td><td>1.40</td><td class="res win">✅ Gagné</td></tr>
+        <tr><td>12/06</td><td>🥊 UFC — co-main event</td><td>Victoire par KO/TKO</td><td>2.50</td><td class="res loss">❌ Perdu</td></tr>
+      </table>
+    </div>
+    <p class="note">Résultats passés fournis à titre informatif : ils <b>ne garantissent en rien</b> les résultats futurs. Le bilan complet et détaillé est publié chaque dimanche sur le Telegram.</p>
+  </section>
+
+  <section>
+    <div class="cta">
+      <h3>🎁 Pronos complets + bilan chaque jour sur le Telegram</h3>
+      <p>Analyses détaillées, cotes du moment et bilan transparent chaque dimanche.</p>
+      <div class="code">CODE PROMO : Saphir1</div><br>
+      <a href="https://one-vv1153.com/?p=f16t" class="btn">S'inscrire sur 1win</a>
+      <a href="https://t.me/betzone_world" class="btn o">Rejoindre le Telegram gratuit</a>
+      <p class="note" style="margin-top:16px">18+ | Jouez responsable. Les bonus sont soumis à des conditions de mise — lis-les avant de déposer.</p>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    <p><span class="age">18+</span><b>Jouez responsable.</b> Le jeu comporte des risques : endettement, isolement, dépendance. Ne jouez que ce que vous pouvez vous permettre de perdre.</p>
+    <p>Divulgation : ce site contient des liens d'affiliation. Nous pouvons percevoir une commission si vous vous inscrivez via nos liens, sans surcoût pour vous. Nos analyses restent indépendantes et aucun pronostic ne garantit un gain.</p>
+    <p>Contenu destiné aux marchés où les paris en ligne sont autorisés (Afrique francophone et international). Non destiné aux résidents de France et de l'Union européenne.</p>
+    <p class="links"><a href="index.html">Accueil</a><a href="pronos.html">Pronos</a><a href="https://t.me/betzone_world">Telegram</a><a href="index.html">Jeu responsable</a></p>
+    <p>© 2026 BetZone — Pronos & analyses sportives quotidiennes.</p>
+  </div>
+</footer>
+</body>
+</html>
