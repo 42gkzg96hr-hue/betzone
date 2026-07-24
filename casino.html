@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Casino — RTP, bonus & jeux décryptés sans langue de bois | BetZone</title>
+<meta name="description" content="Le casino expliqué honnêtement : RTP des jeux, conditions de mise (wagering), crash games comme Lucky Jet, provably fair et bonus décortiqués. 18+, jouez responsable.">
+<meta property="og:title" content="Casino — RTP, bonus & jeux décryptés | BetZone">
+<meta property="og:description" content="RTP, wagering, crash games, provably fair et bonus expliqués sans langue de bois. 18+, jouez responsable.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="BetZone">
+<style>
+:root{--navy:#0a0f28;--navy2:#131b3f;--gold:#deb23e;--gold2:#f0cd6e;--txt:#eef0f7;--grey:#9aa3c0;--card:#141c42;--green:#3ddc84;--red:#ff5c5c}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--navy);color:var(--txt);font-family:'Segoe UI',system-ui,-apple-system,sans-serif;line-height:1.6}
+a{color:var(--gold);text-decoration:none}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+header{background:rgba(10,15,40,.97);border-bottom:1px solid #232c55;position:sticky;top:0;z-index:10}
+.nav{display:flex;align-items:center;gap:18px;padding:14px 0;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.25rem;color:var(--txt)}
+.logo .bz{width:38px;height:38px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#1b2a6b,#0a0f28);border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:.85rem;font-weight:900}
+.nav a.item{color:var(--grey);font-weight:600;font-size:.95rem;padding:6px 2px}
+.nav a.item:hover,.nav a.item.on{color:var(--gold)}
+.hero{padding:52px 0 40px;text-align:center;background:linear-gradient(180deg,#0c1230 0%,var(--navy) 100%)}
+.hero h1{font-size:clamp(1.7rem,4.5vw,2.8rem);font-weight:900}
+.hero h1 span{color:var(--gold)}
+.hero p{color:var(--grey);max-width:660px;margin:14px auto 24px}
+.btn{display:inline-block;background:linear-gradient(135deg,var(--gold),var(--gold2));color:#14183a;font-weight:800;padding:13px 28px;border-radius:10px;font-size:1rem}
+.btn.o{background:none;border:2px solid var(--gold);color:var(--gold);margin-left:10px}
+.badge{display:inline-block;background:#1c2650;color:var(--gold);font-size:.75rem;font-weight:700;padding:4px 12px;border-radius:20px;letter-spacing:.5px;margin-bottom:14px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;margin:34px 0}
+.card{background:var(--card);border:1px solid #222b57;border-radius:14px;padding:22px}
+.card h3{color:var(--gold);margin-bottom:8px;font-size:1.05rem}
+.card p{color:var(--grey);font-size:.93rem}
+.card .em{font-size:1.6rem;margin-bottom:10px;display:block}
+section{padding:34px 0}
+h2.sec{font-size:1.5rem;font-weight:800;margin-bottom:6px}
+h2.sec span{color:var(--gold)}
+.sub{color:var(--grey);margin-bottom:22px;font-size:.95rem}
+.note{font-size:.85rem;color:var(--grey)}
+.cta{background:linear-gradient(135deg,#141c42,#1a2450);border:1px solid #2a3568;border-radius:16px;padding:30px;text-align:center;margin:36px 0}
+.cta h3{font-size:1.3rem;margin-bottom:8px}
+.cta p{color:var(--grey);margin-bottom:18px}
+.cta .code{background:#0a0f28;border:1px dashed var(--gold);border-radius:8px;padding:8px 18px;display:inline-block;margin:0 0 18px;font-weight:800;color:var(--gold);letter-spacing:1px}
+table{width:100%;border-collapse:collapse;margin:16px 0;font-size:.92rem}
+th,td{padding:10px 12px;text-align:left;border-bottom:1px solid #232c55}
+th{color:var(--gold);font-weight:700}
+td{color:var(--txt)}
+.rtp-good{color:var(--green);font-weight:700}
+.rtp-bad{color:var(--red);font-weight:700}
+.warn{background:#1c1430;border:1px solid #3a2a5a;border-radius:12px;padding:16px 20px;font-size:.88rem;color:#c9b8e8;margin:22px 0}
+.faq{background:var(--card);border:1px solid #222b57;border-radius:12px;padding:18px 20px;margin-bottom:12px}
+.faq h3{color:var(--gold);font-size:1rem;margin-bottom:6px}
+.faq p{margin:0;color:var(--grey);font-size:.93rem}
+.vsbanner{position:relative;border-radius:16px;overflow:hidden;padding:34px 28px;margin:18px 0;background:linear-gradient(120deg,#101735 0%,#1c2554 55%,#2a1a4e 100%);border:1px solid #2a3568;text-align:center}
+.vsbanner .comp{color:var(--gold);font-size:.8rem;font-weight:700;letter-spacing:2px;text-transform:uppercase}
+.vsbanner .teams{font-size:clamp(1.6rem,4.5vw,2.6rem);font-weight:900;margin:10px 0 4px;color:#fff}
+.vsbanner .when{color:var(--grey);font-size:.95rem;margin-bottom:16px}
+.vsbanner .freebet{display:inline-block;background:rgba(222,178,62,.12);border:1px dashed var(--gold);color:var(--gold2);font-weight:800;letter-spacing:1px;border-radius:8px;padding:8px 20px;margin-bottom:16px;font-size:.9rem}
+.vsbanner.casino{background:linear-gradient(120deg,#1a1030 0%,#2a1a4e 55%,#3a1030 100%);border-color:#4a2a68}
+.review{background:var(--card);border:1px solid #222b57;border-radius:14px;padding:22px;margin-bottom:16px}
+.review .rhead{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:8px}
+.review .rname{font-size:1.15rem;font-weight:800;color:#fff}
+.review .stars{color:var(--gold);letter-spacing:2px;font-weight:700}
+.review ul{list-style:none;margin:10px 0 0}
+.review li{color:var(--grey);font-size:.92rem;padding:3px 0}
+footer{border-top:1px solid #232c55;padding:30px 0 40px;margin-top:40px}
+footer p{color:var(--grey);font-size:.82rem;margin-bottom:8px}
+footer .links a{margin-right:16px;font-size:.85rem}
+.age{display:inline-block;background:var(--red);color:#fff;font-weight:900;border-radius:6px;padding:2px 8px;font-size:.8rem;margin-right:8px}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <nav class="nav">
+      <a href="index.html" class="logo"><span class="bz">BZ</span> BetZone</a>
+      <a href="index.html" class="item">Accueil</a>
+      <a href="pronos.html#football" class="item">Football</a>
+      <a href="pronos.html#basket" class="item">Basketball</a>
+      <a href="pronos.html#tennis" class="item">Tennis</a>
+      <a href="pronos.html#ufc" class="item">UFC / MMA</a>
+      <a href="pronos.html#f1" class="item">F1 / MotoGP</a>
+      <a href="pronos.html" class="item">Pronos</a>
+      <a href="casino.html" class="item on">Casino</a>
+      <a href="guides.html" class="item">Guides</a>
+      <a href="https://t.me/betzone_world" class="btn" style="margin-left:auto;padding:9px 18px;font-size:.9rem">Telegram ➤</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <span class="badge">LE CASINO EXPLIQUÉ SANS LANGUE DE BOIS</span>
+    <h1>Casino : comprends les <span>vraies</span> règles du jeu</h1>
+    <p>RTP, conditions de mise, crash games, provably fair, bonus piégés… On t'explique ce que les casinos ne mettent jamais en avant. Objectif : que tu joues informé, pour le plaisir — jamais pour te refaire.</p>
+    <a href="guides.html" class="btn">Lire les guides détaillés</a>
+    <a href="https://one-vv1153.com/?p=f16t" class="btn o">Voir le bonus 1win</a>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <!-- ===== JEU DU MOMENT ===== -->
+  <section>
+    <h2 class="sec">🎰 Le jeu du <span>moment</span></h2>
+    <p class="sub">Pas de match ce soir ? Le casino tourne 24/7. On commence par le format qui cartonne : le crash game.</p>
+    <div class="vsbanner casino">
+      <div class="comp">Crash game · le plus populaire</div>
+      <div class="teams">Lucky Jet 🚀</div>
+      <div class="when">RTP annoncé ~97 % · provably fair · mise dès 0,10 €</div>
+      <p style="color:#e6dcff;max-width:660px;margin:0 auto 16px">Le principe : un multiplicateur monte (x1,2… x2… x5…) et tu dois <b>encaisser AVANT le crash</b>. Trop tard = mise perdue. Le seul « secret » qui tienne : fixe ton cash-out à l'avance (ex. x1,5) et respecte-le. La cupidité fait crasher les gains, pas la chance.</p>
+      <div class="freebet">CODE PROMO : Saphir1 · bonus de bienvenue</div>
+      <div>
+        <a href="https://one-vv1153.com/?p=f16t" class="btn">Essayer sur 1win</a>
+        <a href="guides.html#provably-fair" class="btn o">C'est quoi « provably fair » ?</a>
+      </div>
+      <p class="note" style="margin-top:14px">🔞 18+ · Un crash game reste un jeu de hasard à avantage maison. Aucune stratégie ne le rend gagnant sur la durée.</p>
+    </div>
+  </section>
+
+  <!-- ===== RTP ===== -->
+  <section>
+    <h2 class="sec">📊 Le RTP : la <span>seule stat</span> qui compte vraiment</h2>
+    <p class="sub">Le RTP (Return To Player) est le pourcentage théorique reversé aux joueurs sur le très long terme. Un RTP de 97 % veut dire ~3 € perdus pour 100 € misés en moyenne — sur des millions de tours, pas sur ta soirée. Plus il est haut, moins tu perds sur la durée.</p>
+    <table>
+      <tr><th>Jeu</th><th>RTP typique</th><th>Verdict</th></tr>
+      <tr><td>Blackjack (stratégie de base)</td><td class="rtp-good">~99 %</td><td>Le meilleur choix</td></tr>
+      <tr><td>Vidéo poker (bonnes tables)</td><td class="rtp-good">98–99 %</td><td>Excellent si bien joué</td></tr>
+      <tr><td>Baccarat (banque)</td><td class="rtp-good">~98,9 %</td><td>Très correct</td></tr>
+      <tr><td>Roulette européenne (1 zéro)</td><td class="rtp-good">~97,3 %</td><td>OK</td></tr>
+      <tr><td>Crash games (Lucky Jet, Aviator…)</td><td>~97 %</td><td>OK, si cash-out discipliné</td></tr>
+      <tr><td>Machines à sous (slots)</td><td>94–96 %</td><td>Variable — vérifie chaque jeu</td></tr>
+      <tr><td>Roulette américaine (2 zéros)</td><td class="rtp-bad">~94,7 %</td><td>À éviter</td></tr>
+    </table>
+    <p class="note">Règle simple : à jeu égal, choisis toujours la version au RTP le plus élevé (roulette européenne plutôt qu'américaine, slots dont le RTP affiché ≥ 96 %). C'est le seul « système » qui réduit réellement tes pertes.</p>
+  </section>
+
+  <!-- ===== BONUS / WAGERING ===== -->
+  <section>
+    <h2 class="sec">🎁 Bonus & <span>wagering</span> : lis toujours le multiplicateur</h2>
+    <p class="sub">Un bonus n'est jamais « gratuit ». Il est soumis à des conditions de mise (wagering) : le nombre de fois où tu dois rejouer le montant avant de pouvoir retirer.</p>
+    <div class="grid">
+      <div class="card">
+        <span class="em">🧮</span>
+        <h3>Comment lire un wagering</h3>
+        <p>« Bonus 100 € à x40 » = tu dois miser 100 × 40 = <b>4 000 €</b> avant tout retrait. En dessous de x30, c'est correct. Au-delà de x50, laisse tomber : c'est quasi impossible à convertir.</p>
+      </div>
+      <div class="card">
+        <span class="em">⏱️</span>
+        <h3>Les pièges cachés</h3>
+        <p>Délai court (7 jours), mise max limitée pendant le bonus, jeux exclus (le blackjack compte souvent pour 10 % seulement), plafond de retrait sur les gains. Le diable est dans les CGU.</p>
+      </div>
+      <div class="card">
+        <span class="em">✅</span>
+        <h3>Un bon bonus ressemble à quoi</h3>
+        <p>Wagering ≤ x35, délai ≥ 14 jours, conditions écrites clairement, contribution des jeux affichée. Si tu ne trouves pas ces infos : méfie-toi.</p>
+      </div>
+    </div>
+    <p class="note">Notre conseil : un bonus se juge à ses conditions, pas à son pourcentage. Un « +500 % » à x60 vaut moins qu'un « +100 % » à x25.</p>
+  </section>
+
+  <!-- ===== NOTRE MÉTHODE ===== -->
+  <section>
+    <h2 class="sec">🔍 Comment on <span>évalue</span> un casino</h2>
+    <p class="sub">Notre grille est publique. On ne note pas au feeling — et un casino ne peut pas « acheter » une meilleure note.</p>
+    <div class="grid">
+      <div class="card"><span class="em">🛡️</span><h3>Licence & sécurité</h3><p>Régulateur, chiffrement, vérification KYC, réputation. Sans licence vérifiable, note plafonnée.</p></div>
+      <div class="card"><span class="em">💸</span><h3>Retraits</h3><p>Délais réels, plafonds, méthodes, frais cachés. Un bon casino paie vite et sans embrouille.</p></div>
+      <div class="card"><span class="em">🎲</span><h3>Jeux & RTP</h3><p>Diversité, éditeurs reconnus, RTP affichés, présence de jeux provably fair.</p></div>
+      <div class="card"><span class="em">🤝</span><h3>Bonus honnêtes</h3><p>Conditions de mise raisonnables et clairement écrites. On pénalise les pièges.</p></div>
+      <div class="card"><span class="em">💬</span><h3>Support</h3><p>Réactivité, langues, chat en direct, qualité des réponses.</p></div>
+      <div class="card"><span class="em">🔞</span><h3>Jeu responsable</h3><p>Limites de dépôt, auto-exclusion, liens d'aide visibles. Non négociable.</p></div>
+    </div>
+  </section>
+
+  <!-- ===== MINI-AVIS ===== -->
+  <section>
+    <h2 class="sec">⭐ Le casino qu'on <span>utilise</span></h2>
+    <p class="sub">Transparence : le lien ci-dessous est affilié. On peut toucher une commission si tu t'inscris, sans surcoût pour toi. Ça ne change rien à notre analyse — et jamais à ton avantage au jeu.</p>
+    <div class="review">
+      <div class="rhead">
+        <div class="rname">1win</div>
+        <div class="stars">★★★★☆ <span style="color:var(--grey);font-weight:400">4,2/5</span></div>
+      </div>
+      <ul>
+        <li>✅ Sport + casino + crash games (Lucky Jet, Aviator) sur une seule plateforme.</li>
+        <li>✅ Bonus de bienvenue jusqu'à +500 % sur les premiers dépôts (code <b>Saphir1</b>).</li>
+        <li>✅ Dépôts/retraits crypto et mobile money — pratique en Afrique francophone.</li>
+        <li>❖ Bonus à conditions de mise élevées : lis les CGU avant de déposer.</li>
+        <li>❖ Vérifie toujours que les paris en ligne sont autorisés dans ton pays.</li>
+      </ul>
+      <div style="margin-top:16px">
+        <a href="https://one-vv1153.com/?p=f16t" class="btn">S'inscrire (code Saphir1)</a>
+        <a href="guides.html" class="btn o">Lire nos guides avant de jouer</a>
+      </div>
+    </div>
+    <p class="note">On ne référence que des plateformes qu'on a testées. Un avis négatif reste en ligne : on ne supprime pas les critiques.</p>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section>
+    <h2 class="sec">❓ Questions <span>fréquentes</span></h2>
+    <div class="faq"><h3>Existe-t-il une stratégie pour gagner à coup sûr ?</h3><p>Non. Tout jeu de casino a un avantage maison intégré : sur la durée, la maison gagne. Les « méthodes miracles » (martingale, logiciels…) ne changent pas les maths. La seule stratégie saine : jouer pour le plaisir, avec un budget que tu peux perdre.</p></div>
+    <div class="faq"><h3>Le crash game est-il truqué ?</h3><p>Sur un jeu « provably fair », tu peux vérifier toi-même que le résultat n'a pas été manipulé après ta mise (voir nos guides). Mais « fair » ne veut pas dire « favorable » : l'avantage maison existe toujours.</p></div>
+    <div class="faq"><h3>C'est quoi une bonne gestion de bankroll ?</h3><p>Fixe un budget de divertissement à l'avance, ne le dépasse jamais, ne mise qu'un petit pourcentage par session, et arrête-toi que tu gagnes ou perdes. Ne joue jamais pour « te refaire » — c'est le piège numéro un.</p></div>
+    <div class="faq"><h3>Puis-je jouer depuis la France ou l'UE ?</h3><p>Ce contenu vise les marchés où les paris en ligne sont autorisés (Afrique francophone et international). Il n'est pas destiné aux résidents de France et de l'Union européenne. Vérifie toujours la loi de ton pays.</p></div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section>
+    <div class="cta">
+      <h3>🎁 Bonus de bienvenue : +500 % sur tes 4 premiers dépôts</h3>
+      <p>Cashback jusqu'à 30 % sur le casino · sport, casino et crash games réunis</p>
+      <div class="code">CODE PROMO : Saphir1</div><br>
+      <a href="https://one-vv1153.com/?p=f16t" class="btn">S'inscrire sur 1win</a>
+      <a href="https://t.me/betzone_world" class="btn o">Pronos gratuits sur Telegram</a>
+      <p class="note" style="margin-top:16px">18+ | Jouez responsable. Les bonus sont soumis à des conditions de mise — lis-les avant de déposer.</p>
+    </div>
+  </section>
+
+  <div class="warn">
+    🔞 <b>Le casino est un divertissement, jamais un revenu.</b> Aucun jeu n'est gagnant à long terme. Si le jeu cesse d'être un plaisir, ou si tu joues pour te refaire, arrête et parle-en. Demande de l'aide : appelle une ligne d'écoute dédiée au jeu dans ton pays.
+  </div>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    <p><span class="age">18+</span><b>Jouez responsable.</b> Le jeu comporte des risques : endettement, isolement, dépendance. Ne jouez que ce que vous pouvez vous permettre de perdre.</p>
+    <p>Divulgation : ce site contient des liens d'affiliation. Nous pouvons percevoir une commission si vous vous inscrivez via nos liens, sans surcoût pour vous. Nos analyses restent indépendantes et aucun pronostic ne garantit un gain.</p>
+    <p>Contenu destiné aux marchés où les paris en ligne sont autorisés (Afrique francophone et international). Non destiné aux résidents de France et de l'Union européenne.</p>
+    <p class="links"><a href="index.html">Accueil</a><a href="pronos.html">Pronos</a><a href="casino.html">Casino</a><a href="guides.html">Guides</a><a href="https://t.me/betzone_world">Telegram</a></p>
+    <p>© 2026 BetZone — Pronos & analyses sportives quotidiennes.</p>
+  </div>
+</footer>
+</body>
+</html>
