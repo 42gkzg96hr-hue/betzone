@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guides paris & casino — wagering, RTP, provably fair, crypto | BetZone</title>
+<meta name="description" content="Guides clairs pour parier et jouer informé : conditions de mise (wagering), RTP, provably fair, dépôt crypto, légalité et sécurité des casinos. 18+, jouez responsable.">
+<meta property="og:title" content="Guides paris & casino | BetZone">
+<meta property="og:description" content="Wagering, RTP, provably fair, dépôt crypto, légalité, sécurité : nos guides pour jouer informé. 18+.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="BetZone">
+<style>
+:root{--navy:#0a0f28;--navy2:#131b3f;--gold:#deb23e;--gold2:#f0cd6e;--txt:#eef0f7;--grey:#9aa3c0;--card:#141c42;--green:#3ddc84;--red:#ff5c5c}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--navy);color:var(--txt);font-family:'Segoe UI',system-ui,-apple-system,sans-serif;line-height:1.6}
+a{color:var(--gold);text-decoration:none}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+header{background:rgba(10,15,40,.97);border-bottom:1px solid #232c55;position:sticky;top:0;z-index:10}
+.nav{display:flex;align-items:center;gap:18px;padding:14px 0;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.25rem;color:var(--txt)}
+.logo .bz{width:38px;height:38px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#1b2a6b,#0a0f28);border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:.85rem;font-weight:900}
+.nav a.item{color:var(--grey);font-weight:600;font-size:.95rem;padding:6px 2px}
+.nav a.item:hover,.nav a.item.on{color:var(--gold)}
+.hero{padding:52px 0 40px;text-align:center;background:linear-gradient(180deg,#0c1230 0%,var(--navy) 100%)}
+.hero h1{font-size:clamp(1.7rem,4.5vw,2.8rem);font-weight:900}
+.hero h1 span{color:var(--gold)}
+.hero p{color:var(--grey);max-width:660px;margin:14px auto 24px}
+.btn{display:inline-block;background:linear-gradient(135deg,var(--gold),var(--gold2));color:#14183a;font-weight:800;padding:13px 28px;border-radius:10px;font-size:1rem}
+.btn.o{background:none;border:2px solid var(--gold);color:var(--gold);margin-left:10px}
+.badge{display:inline-block;background:#1c2650;color:var(--gold);font-size:.75rem;font-weight:700;padding:4px 12px;border-radius:20px;letter-spacing:.5px;margin-bottom:14px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin:28px 0}
+.card{background:var(--card);border:1px solid #222b57;border-radius:14px;padding:20px}
+.card h3{color:var(--gold);margin-bottom:8px;font-size:1.02rem}
+.card p{color:var(--grey);font-size:.92rem}
+.card .em{font-size:1.6rem;margin-bottom:10px;display:block}
+.card a{font-weight:700;font-size:.9rem}
+section{padding:30px 0;border-bottom:1px solid #1a2245}
+h2.sec{font-size:1.45rem;font-weight:800;margin-bottom:6px}
+h2.sec span{color:var(--gold)}
+.sub{color:var(--grey);margin-bottom:18px;font-size:.95rem}
+.guide h3{color:#fff;font-size:1.05rem;margin:16px 0 6px}
+.guide p{color:var(--grey);font-size:.95rem;margin-bottom:10px}
+.guide b{color:var(--txt)}
+.guide ul{margin:0 0 12px 20px}
+.guide li{color:var(--grey);font-size:.94rem;margin-bottom:5px}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.92rem}
+th,td{padding:10px 12px;text-align:left;border-bottom:1px solid #232c55}
+th{color:var(--gold);font-weight:700}
+td{color:var(--txt)}
+.example{background:#0e1533;border:1px solid #222b57;border-left:4px solid var(--gold);border-radius:10px;padding:14px 18px;margin:12px 0;font-size:.93rem;color:#dfe3f2}
+.note{font-size:.85rem;color:var(--grey)}
+.warn{background:#1c1430;border:1px solid #3a2a5a;border-radius:12px;padding:16px 20px;font-size:.88rem;color:#c9b8e8;margin:22px 0}
+.toc a{display:inline-block;background:#141c42;border:1px solid #222b57;border-radius:20px;padding:6px 14px;margin:4px 6px 4px 0;font-size:.88rem;font-weight:600}
+.toc a:hover{border-color:var(--gold)}
+.cta{background:linear-gradient(135deg,#141c42,#1a2450);border:1px solid #2a3568;border-radius:16px;padding:30px;text-align:center;margin:30px 0}
+.cta h3{font-size:1.25rem;margin-bottom:8px}
+.cta .code{background:#0a0f28;border:1px dashed var(--gold);border-radius:8px;padding:8px 18px;display:inline-block;margin:12px 0 18px;font-weight:800;color:var(--gold);letter-spacing:1px}
+footer{border-top:1px solid #232c55;padding:30px 0 40px;margin-top:20px}
+footer p{color:var(--grey);font-size:.82rem;margin-bottom:8px}
+footer .links a{margin-right:16px;font-size:.85rem}
+.age{display:inline-block;background:var(--red);color:#fff;font-weight:900;border-radius:6px;padding:2px 8px;font-size:.8rem;margin-right:8px}
+</style>
+<script data-goatcounter="https://betzone.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <nav class="nav">
+      <a href="index.html" class="logo"><span class="bz">BZ</span> BetZone</a>
+      <a href="index.html" class="item">Accueil</a>
+      <a href="pronos.html" class="item">Pronos</a>
+      <a href="casino.html" class="item">Casino</a>
+      <a href="guides.html" class="item on">Guides</a>
+      <a href="https://t.me/betzone_world" class="btn" style="margin-left:auto;padding:9px 18px;font-size:.9rem">Telegram ➤</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <span class="badge">JOUER INFORMÉ · GUIDES CLAIRS</span>
+    <h1>Les <span>guides</span> qu'on aurait aimé lire avant de parier</h1>
+    <p>Pas de blabla marketing. Juste ce qu'il faut comprendre pour ne pas se faire avoir : conditions de mise, RTP, provably fair, dépôts crypto, légalité et sécurité. Tout est expliqué simplement.</p>
+    <div class="toc">
+      <a href="#wagering">Conditions de mise</a>
+      <a href="#rtp">Le RTP</a>
+      <a href="#provably-fair">Provably fair</a>
+      <a href="#crypto-depot">Dépôt crypto</a>
+      <a href="#legalite">Légalité</a>
+      <a href="#securite">Sécurité</a>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <!-- ===== WAGERING ===== -->
+  <section id="wagering" class="guide">
+    <h2 class="sec">🧮 Les <span>conditions de mise</span> (wagering) expliquées</h2>
+    <p class="sub">C'est LE piège qui coûte le plus cher aux débutants. Comprends-le une fois, tu ne te feras plus avoir.</p>
+    <p>Quand un casino offre un bonus, tu ne peux pas le retirer immédiatement. Tu dois d'abord le <b>rejouer</b> un certain nombre de fois : c'est le wagering (ou « exigence de mise »), exprimé par un multiplicateur comme x30 ou x40.</p>
+    <div class="example">
+      <b>Exemple concret.</b> Tu déposes 100 € et reçois 100 € de bonus, wagering <b>x40</b> sur le bonus.<br>
+      Tu dois miser 100 € × 40 = <b>4 000 €</b> au total avant de pouvoir retirer le moindre gain issu du bonus. À chaque tour, une part est « rejouée » ; il faut cumuler 4 000 € de mises.
+    </div>
+    <h3>Ce qui rend un wagering pire qu'il n'en a l'air</h3>
+    <ul>
+      <li><b>La base de calcul :</b> x40 sur (dépôt + bonus) est bien plus dur que x40 sur le bonus seul.</li>
+      <li><b>La contribution des jeux :</b> les slots comptent souvent 100 %, mais le blackjack ou la roulette 10 % voire 0 %. Miser 100 € au blackjack ne fait avancer le wagering que de 10 €.</li>
+      <li><b>Le délai :</b> 7 jours pour rejouer 4 000 €, c'est une course perdue d'avance.</li>
+      <li><b>La mise max :</b> souvent plafonnée (ex. 5 €/tour) tant que le bonus est actif.</li>
+      <li><b>Le plafond de gains :</b> certains bonus limitent ce que tu peux retirer.</li>
+    </ul>
+    <h3>Notre règle</h3>
+    <p>Wagering ≤ x30 : correct. x30–x50 : à négliger sauf conditions par ailleurs excellentes. > x50 : oublie. Et souviens-toi : <b>un « +500 % » à x60 vaut moins qu'un « +100 % » à x25.</b></p>
+  </section>
+
+  <!-- ===== RTP ===== -->
+  <section id="rtp" class="guide">
+    <h2 class="sec">📊 Le <span>RTP</span> : combien un jeu te rend vraiment</h2>
+    <p class="sub">Return To Player = le % théorique reversé aux joueurs sur le très long terme. C'est l'inverse de l'avantage maison.</p>
+    <p>Un RTP de 97 % signifie qu'en moyenne, sur des millions de tours, 97 € sont reversés pour 100 € misés. Les 3 € restants sont l'avantage de la maison. <b>Attention :</b> c'est une moyenne statistique sur le long terme, pas une prédiction pour ta session — tu peux perdre 100 % ou doubler sur une soirée.</p>
+    <table>
+      <tr><th>Jeu</th><th>RTP typique</th></tr>
+      <tr><td>Blackjack (stratégie de base)</td><td>~99 %</td></tr>
+      <tr><td>Roulette européenne</td><td>~97,3 %</td></tr>
+      <tr><td>Crash games (Lucky Jet, Aviator)</td><td>~97 %</td></tr>
+      <tr><td>Machines à sous</td><td>94–96 %</td></tr>
+      <tr><td>Roulette américaine</td><td>~94,7 % (à éviter)</td></tr>
+    </table>
+    <p>Le réflexe gagnant : à choix égal, prends toujours la version au RTP le plus élevé. C'est la seule décision qui réduit mathématiquement tes pertes.</p>
+  </section>
+
+  <!-- ===== PROVABLY FAIR ===== -->
+  <section id="provably-fair" class="guide">
+    <h2 class="sec">🔍 « <span>Provably fair</span> » : vérifier qu'un jeu n'est pas truqué</h2>
+    <p class="sub">Un système cryptographique qui te permet de prouver toi-même que le résultat n'a pas été manipulé après ta mise.</p>
+    <p>Le principe, simplifié : avant chaque tour, le casino génère un résultat et t'en donne une <b>empreinte chiffrée</b> (un « hash ») — impossible à modifier ensuite sans que ça se voie. Ton navigateur ajoute sa propre valeur aléatoire (la « seed client »). Le résultat final combine les deux. Après le tour, tu peux dévoiler les valeurs et recalculer le hash : s'il correspond, le résultat n'a pas été truqué.</p>
+    <ul>
+      <li><b>Ce que ça garantit :</b> le casino n'a pas changé le résultat après avoir vu ta mise.</li>
+      <li><b>Ce que ça ne garantit PAS :</b> que tu vas gagner. L'avantage maison est toujours là. <b>Fair ≠ favorable.</b></li>
+    </ul>
+    <p>C'est un vrai plus en transparence (fréquent sur les crash games et casinos crypto), mais ça ne transforme pas un jeu de hasard en placement.</p>
+  </section>
+
+  <!-- ===== CRYPTO DEPOT ===== -->
+  <section id="crypto-depot" class="guide">
+    <h2 class="sec">₿ Déposer en <span>crypto</span> sur un casino, étape par étape</h2>
+    <p class="sub">De plus en plus courant, notamment là où les cartes bancaires passent mal. Voici la marche à suivre — et les pièges.</p>
+    <ul>
+      <li><b>1. Procure-toi la crypto</b> sur une plateforme d'échange réputée (achat en monnaie locale), puis transfère-la vers ton propre wallet.</li>
+      <li><b>2. Sur le casino,</b> choisis « Dépôt » → crypto (souvent USDT, BTC, ETH). Le site affiche une adresse de dépôt et/ou un QR code.</li>
+      <li><b>3. Copie l'adresse EXACTE</b> et vérifie le <b>réseau</b> (ex. USDT sur TRC-20 vs ERC-20). Mauvais réseau = fonds perdus, sans recours.</li>
+      <li><b>4. Envoie</b> depuis ton wallet. Le dépôt apparaît après quelques confirmations sur la blockchain.</li>
+      <li><b>5. Garde une petite marge</b> pour les frais de réseau et fais toujours un premier envoi test si le montant est important.</li>
+    </ul>
+    <div class="warn">⚠️ Les transactions crypto sont <b>irréversibles</b>. Une adresse ou un réseau erroné = argent perdu définitivement. Vérifie deux fois avant de valider.</div>
+    <p class="note">Astuce stablecoins : un stablecoin (type USDT) évite que la valeur de ton dépôt fluctue avec le cours du Bitcoin pendant que tu joues.</p>
+  </section>
+
+  <!-- ===== LEGALITE ===== -->
+  <section id="legalite" class="guide">
+    <h2 class="sec">⚖️ Le jeu en ligne est-il <span>légal</span> chez toi ?</h2>
+    <p class="sub">La réponse dépend entièrement de ton pays. Il n'existe pas de règle universelle — c'est à toi de vérifier.</p>
+    <p>Selon les juridictions, les paris et casinos en ligne peuvent être : pleinement légaux et régulés, tolérés via des opérateurs sous licence étrangère, ou interdits. La légalité dépend aussi de ton âge (18 ou 21 ans selon les pays) et du type de jeu.</p>
+    <ul>
+      <li>Vérifie la réglementation <b>de ton pays de résidence</b>, pas celle du casino.</li>
+      <li>Un casino « sous licence » (Curaçao, Malte…) ne rend pas le jeu légal partout : ça encadre l'opérateur, pas ton droit d'y jouer.</li>
+      <li>Respecte l'âge légal local. En cas de doute, renseigne-toi auprès d'une source officielle.</li>
+    </ul>
+    <p class="note">Ce site vise les marchés où les paris en ligne sont autorisés (Afrique francophone et international). Il n'est pas destiné aux résidents de France et de l'UE. Ceci n'est pas un conseil juridique.</p>
+  </section>
+
+  <!-- ===== SECURITE ===== -->
+  <section id="securite" class="guide">
+    <h2 class="sec">🛡️ Repérer un casino <span>sûr</span> (et fuir les arnaques)</h2>
+    <p class="sub">Quelques vérifications de 5 minutes t'évitent 90 % des mauvaises surprises.</p>
+    <ul>
+      <li><b>Licence vérifiable :</b> numéro et régulateur affichés, cliquables et valides.</li>
+      <li><b>Connexion sécurisée :</b> HTTPS (cadenas), politique de confidentialité claire.</li>
+      <li><b>Retraits documentés :</b> délais, plafonds et méthodes écrits noir sur blanc. Cherche les avis d'autres joueurs sur les paiements.</li>
+      <li><b>Éditeurs de jeux reconnus</b> et RTP affichés.</li>
+      <li><b>Outils de jeu responsable :</b> limites de dépôt, auto-exclusion, liens d'aide. Leur absence est un signal d'alarme.</li>
+      <li><b>Support joignable</b> et réactif avant même de déposer : teste-le.</li>
+    </ul>
+    <div class="warn">🚩 Signaux d'alarme : promesses de gains « garantis », bonus trop beaux avec CGU introuvables, pression pour déposer vite, retraits qui « bloquent » sans explication, aucune mention légale. Dans le doute, ne dépose pas.</div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section style="border-bottom:none">
+    <div class="cta">
+      <h3>🎯 Des pronos analysés + un casino qu'on a testé</h3>
+      <p style="color:var(--grey)">Rejoins le Telegram gratuit pour les analyses du jour, ou découvre le bonus de bienvenue.</p>
+      <div class="code">CODE PROMO : Saphir1</div><br>
+      <a href="https://t.me/betzone_world" class="btn">Telegram gratuit</a>
+      <a href="casino.html" class="btn o">Voir la page Casino</a>
+      <p class="note" style="margin-top:16px">18+ | Jouez responsable. Les bonus sont soumis à des conditions de mise — lis-les avant de déposer.</p>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    <p><span class="age">18+</span><b>Jouez responsable.</b> Le jeu comporte des risques : endettement, isolement, dépendance. Ne jouez que ce que vous pouvez vous permettre de perdre.</p>
+    <p>Divulgation : ce site contient des liens d'affiliation. Nous pouvons percevoir une commission si vous vous inscrivez via nos liens, sans surcoût pour vous. Nos analyses restent indépendantes et aucun pronostic ne garantit un gain.</p>
+    <p>Contenu destiné aux marchés où les paris en ligne sont autorisés (Afrique francophone et international). Non destiné aux résidents de France et de l'Union européenne. Les guides sont informatifs et ne constituent pas un conseil juridique ou financier.</p>
+    <p class="links"><a href="index.html">Accueil</a><a href="pronos.html">Pronos</a><a href="casino.html">Casino</a><a href="guides.html">Guides</a><a href="https://t.me/betzone_world">Telegram</a></p>
+    <p>© 2026 BetZone — Pronos & analyses sportives quotidiennes.</p>
+  </div>
+</footer>
+<!-- Sélecteur de langue (traduction instantanée) -->
+<style>.goog-te-banner-frame,.goog-logo-link,.goog-te-gadget span,.skiptranslate iframe{display:none!important}body{top:0!important}#gtranslate{position:fixed;bottom:14px;right:14px;z-index:9999;background:#141c42;border:1px solid #deb23e;border-radius:10px;padding:6px 9px;box-shadow:0 4px 14px rgba(0,0,0,.45);display:flex;align-items:center;gap:6px}#gtranslate .lbl{color:#deb23e;font-size:.82rem;font-weight:700}#gtranslate .goog-te-combo{color:#0a0f28;font-weight:700;border:none;border-radius:6px;padding:4px 6px;font-size:.9rem;max-width:150px}</style>
+<div id="gtranslate"><span class="lbl">🌐 Langue</span><span id="google_translate_element"></span></div>
+<script>function googleTranslateElementInit(){new google.translate.TranslateElement({pageLanguage:"fr",autoDisplay:false},'google_translate_element');}</script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>
