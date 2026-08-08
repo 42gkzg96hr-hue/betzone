@@ -105,13 +105,52 @@ footer .links a{margin-right:16px;font-size:.85rem}
     <h1>Pronostics sportifs <span>gratuits</span> — nos analyses IA</h1>
     <p class="lede">Football, basket, tennis, UFC, F1 : on croise les données réelles (forme, confrontations, cotes, contexte) avec un modèle assisté par IA pour repérer la <b>value</b>. Marché conseillé, indice de confiance, gestion de bankroll — sans jamais promettre de gain.</p>
     <div class="cta-row">
-      <a href="https://one-vv1153.com/?p=f16t" rel="sponsored noopener" target="_blank" class="btn">🔓 Débloquer les analyses IA — code Saphir1</a>
-      <a href="code-promo-1win.html" class="btn o">Voir le bonus</a>
+      <a href="#analyse-ia" class="btn">🤖 Essayer le robot d'analyse IA</a>
+      <a href="https://one-vv1153.com/?p=f16t" rel="sponsored noopener" target="_blank" class="btn o">🔓 Analyses complètes — code Saphir1</a>
     </div>
   </div>
 </div>
 
 <div class="wrap">
+
+  <!-- ===== ROBOT ANALYSE IA (mis en avant) ===== -->
+  <section id="analyse-ia">
+    <div class="cta" style="text-align:left">
+      <span class="badge">🤖 ROBOT D'ANALYSE IA · GRATUIT · SANS INSCRIPTION</span>
+      <h3 style="font-size:1.6rem;margin:12px 0 6px">Analyse ton match en <span style="color:var(--gold)">1 clic</span></h3>
+      <p style="margin:0 0 16px">Entre un duel et les cotes des deux camps : le robot sort une <b>lecture probabiliste</b> instantanée (probabilités réelles, favori, marge du bookmaker, repère de value). Une analyse, jamais une promesse de gain.</p>
+      <div class="tool" style="margin:0">
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:10px">
+          <input type="text" id="ia_a" placeholder="Équipe / joueur A" style="flex:1;min-width:160px">
+          <input type="text" id="ia_b" placeholder="Équipe / joueur B" style="flex:1;min-width:160px">
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <input type="number" id="ia_ca" placeholder="Cote A (ex : 1.80)" min="1" step="0.01">
+          <input type="number" id="ia_cb" placeholder="Cote B (ex : 2.10)" min="1" step="0.01">
+          <button type="button" onclick="analyseIA()">🤖 Analyser</button>
+        </div>
+        <div id="ia_out" style="margin-top:14px;color:#dfe3f2;font-size:.95rem;line-height:1.6"></div>
+      </div>
+    </div>
+  </section>
+  <script>
+  function analyseIA(){
+    var a=(document.getElementById('ia_a').value||'').trim()||'Camp A';
+    var b=(document.getElementById('ia_b').value||'').trim()||'Camp B';
+    var ca=parseFloat(document.getElementById('ia_ca').value)||0;
+    var cb=parseFloat(document.getElementById('ia_cb').value)||0;
+    var out=document.getElementById('ia_out');var h='';
+    if(ca>=1&&cb>=1){
+      var pa=1/ca,pb=1/cb,s=pa+pb;var na=Math.round(pa/s*100),nb=100-na;
+      var marge=Math.max(0,Math.round((s-1)*100));var fav=na>=nb?a:b;var favp=Math.max(na,nb);
+      h='<b style="color:#deb23e">📊 Lecture probabiliste</b><br>'+a+' : ~<b>'+na+'%</b> · '+b+' : ~<b>'+nb+'%</b><br>Favori implicite : <b>'+fav+'</b> ('+favp+'%). Marge bookmaker estimée : ~'+marge+'%.<br><span style="color:#9aa3c0">💡 Value : si tu estimes la vraie probabilité de '+fav+' <b>supérieure</b> à '+favp+'%, il peut y avoir de la valeur. Sinon, passe ton tour ou compare les cotes ailleurs.</span>';
+    }else{
+      h='<b style="color:#deb23e">🧭 Grille d\'analyse</b> — '+a+' vs '+b+' :<br>• Forme récente (5 derniers matchs)<br>• Confrontations directes (head-to-head)<br>• Absences / blessures / rotations<br>• Contexte : domicile, enjeu, fatigue, surface/météo<br>• Comparer les cotes entre opérateurs<br><span style="color:#9aa3c0">➕ Entre les cotes des deux camps ci-dessus pour une lecture probabiliste chiffrée.</span>';
+    }
+    h+='<div style="margin-top:12px;padding:12px 14px;border:1px solid #3a2a5a;background:#1c1430;border-radius:8px;color:#c9b8e8;font-size:.88rem">🔞 Analyse <b>probabiliste</b>, jamais un gain garanti. L\'analyse IA complète (données détaillées, cote conseillée, indice de confiance) est réservée aux membres.</div><div style="margin-top:10px"><a href="https://one-vv1153.com/?p=f16t" rel="sponsored noopener" target="_blank" class="btn">🔓 Débloquer l\'analyse complète — code Saphir1</a></div>';
+    out.innerHTML=h;
+  }
+  </script>
 
   <!-- ===== TUNNEL ===== -->
   <section>
@@ -151,25 +190,8 @@ footer .links a{margin-right:16px;font-size:.85rem}
     </div>
   </section>
 
-  <!-- ===== OUTIL ANALYSE IA ===== -->
-  <section id="analyse-ia">
-    <h2 class="sec">🤖 Générateur d'<span>analyse IA</span></h2>
-    <p class="sub">Entre un duel et (si tu les as) les cotes des deux camps. L'outil te sort une <b>lecture probabiliste</b> et une grille d'analyse. Ce n'est jamais un pronostic garanti — l'analyse détaillée est réservée aux membres.</p>
-    <div class="tool">
-      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:10px">
-        <input type="text" id="ia_a" placeholder="Équipe / joueur A" style="flex:1;min-width:160px">
-        <input type="text" id="ia_b" placeholder="Équipe / joueur B" style="flex:1;min-width:160px">
-      </div>
-      <div style="display:flex;gap:10px;flex-wrap:wrap">
-        <input type="number" id="ia_ca" placeholder="Cote A (ex : 1.80)" min="1" step="0.01">
-        <input type="number" id="ia_cb" placeholder="Cote B (ex : 2.10)" min="1" step="0.01">
-        <button type="button" onclick="analyseIA()">Analyser</button>
-      </div>
-      <div id="ia_out" style="margin-top:14px;color:#dfe3f2;font-size:.95rem;line-height:1.6"></div>
-    </div>
-  </section>
   <script>
-  function analyseIA(){
+  function analyseIA_dup(){
     var a=(document.getElementById('ia_a').value||'').trim()||'Camp A';
     var b=(document.getElementById('ia_b').value||'').trim()||'Camp B';
     var ca=parseFloat(document.getElementById('ia_ca').value)||0;
