@@ -116,10 +116,24 @@ footer .links a{margin-right:16px;font-size:.85rem}
   <!-- ===== ROBOT ANALYSE IA (mis en avant) ===== -->
   <section id="analyse-ia">
     <div class="cta" style="text-align:left">
-      <span class="badge">🤖 ROBOT D'ANALYSE IA · GRATUIT · SANS INSCRIPTION</span>
-      <h3 style="font-size:1.6rem;margin:12px 0 6px">Analyse ton match en <span style="color:var(--gold)">1 clic</span></h3>
-      <p style="margin:0 0 16px">Entre un duel et les cotes des deux camps : le robot sort une <b>lecture probabiliste</b> instantanée (probabilités réelles, favori, marge du bookmaker, repère de value). Une analyse, jamais une promesse de gain.</p>
+      <span class="badge">🤖 ROBOT D'ANALYSE IA · TOUS SPORTS · GRATUIT</span>
+      <h3 style="font-size:1.6rem;margin:12px 0 6px">Analyse ton pari en <span style="color:var(--gold)">1 clic</span></h3>
+      <p style="margin:0 0 16px">Football, tennis, basket, UFC, F1, e-sport… Choisis le type de pari, entre le duel et les cotes : le robot sort une <b>lecture probabiliste</b> instantanée et une grille d'analyse adaptée. Une analyse, jamais une promesse de gain.</p>
       <div class="tool" style="margin:0">
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:10px">
+          <select id="ia_sport" style="flex:1;min-width:160px;padding:10px;border-radius:8px;border:1px solid #2a3a6a;background:#0a0f28;color:#eef0f7;font-weight:600">
+            <option value="football">⚽ Football</option>
+            <option value="tennis">🎾 Tennis</option>
+            <option value="basket">🏀 Basketball</option>
+            <option value="ufc">🥊 UFC / MMA / Boxe</option>
+            <option value="f1">🏎️ F1 / MotoGP</option>
+            <option value="hockey">🏒 Hockey</option>
+            <option value="rugby">🏉 Rugby</option>
+            <option value="volley">🏐 Volley / Hand</option>
+            <option value="esport">🎮 e-sport</option>
+            <option value="autre">🎯 Autre</option>
+          </select>
+        </div>
         <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:10px">
           <input type="text" id="ia_a" placeholder="Équipe / joueur A" style="flex:1;min-width:160px">
           <input type="text" id="ia_b" placeholder="Équipe / joueur B" style="flex:1;min-width:160px">
@@ -139,13 +153,29 @@ footer .links a{margin-right:16px;font-size:.85rem}
     var b=(document.getElementById('ia_b').value||'').trim()||'Camp B';
     var ca=parseFloat(document.getElementById('ia_ca').value)||0;
     var cb=parseFloat(document.getElementById('ia_cb').value)||0;
-    var out=document.getElementById('ia_out');var h='';
+    var sp=(document.getElementById('ia_sport')||{}).value||'autre';
+    var grids={
+      football:['Forme récente (5 derniers matchs)','Confrontations directes (head-to-head)','Blessures / suspensions / rotations','Domicile vs extérieur, enjeu du match','Marchés à comparer : 1X2, Over/Under, BTTS, handicap'],
+      tennis:['Surface (terre, dur, gazon) et adaptation des joueurs','Forme récente et confiance','Face-à-face (H2H) direct','Fatigue / enchaînement de matchs','Marchés : vainqueur, handicap en jeux/sets, total de jeux'],
+      basket:['Forme et série en cours','Repos vs back-to-back (fatigue)','Blessures des joueurs clés','Rythme de jeu (possessions)','Marchés : moneyline, spread, total de points'],
+      ufc:['Styles (frappeur vs lutteur), allonge','Cardio et endurance sur 3-5 rounds','Historique récent et qualité d\'adversité','Lieu / cage (APEX = pression)','Marchés : vainqueur, méthode (KO/soum/déc), over/under rounds'],
+      f1:['Qualifications et grille de départ','Performance de la voiture sur ce type de circuit','Météo (pluie = surprises)','Stratégie pneus et fiabilité','Marchés : vainqueur, podium, points, duels pilotes'],
+      hockey:['Forme et série, gardien titulaire','Repos et calendrier','Blessures des lignes clés','Avantage de la glace','Marchés : moneyline, handicap (puck line), total de buts'],
+      rugby:['Forme et compositions annoncées','Face-à-face et contexte (tournoi)','Météo et état du terrain','Discipline (cartons) et jeu au pied','Marchés : vainqueur, handicap, total de points'],
+      volley:['Forme récente et enchaînement','Effectif au complet ou rotations','Face-à-face direct','Avantage à domicile','Marchés : vainqueur, handicap en sets, total de points'],
+      esport:['Forme récente de l\'équipe/roster','Patch / méta actuelle','Map pool et bans','Fatigue (tournois enchaînés)','Marchés : vainqueur, handicap de maps, totaux'],
+      autre:['Forme récente des deux camps','Confrontations directes','Absences / conditions','Contexte (lieu, enjeu, fatigue)','Comparer les cotes entre opérateurs']
+    };
+    var labels={football:'⚽ Football',tennis:'🎾 Tennis',basket:'🏀 Basket',ufc:'🥊 UFC/MMA',f1:'🏎️ F1/Moto',hockey:'🏒 Hockey',rugby:'🏉 Rugby',volley:'🏐 Volley/Hand',esport:'🎮 e-sport',autre:'🎯 Pari'};
+    var out=document.getElementById('ia_out');var h='';var lbl=labels[sp]||'Pari';
     if(ca>=1&&cb>=1){
       var pa=1/ca,pb=1/cb,s=pa+pb;var na=Math.round(pa/s*100),nb=100-na;
       var marge=Math.max(0,Math.round((s-1)*100));var fav=na>=nb?a:b;var favp=Math.max(na,nb);
-      h='<b style="color:#deb23e">📊 Lecture probabiliste</b><br>'+a+' : ~<b>'+na+'%</b> · '+b+' : ~<b>'+nb+'%</b><br>Favori implicite : <b>'+fav+'</b> ('+favp+'%). Marge bookmaker estimée : ~'+marge+'%.<br><span style="color:#9aa3c0">💡 Value : si tu estimes la vraie probabilité de '+fav+' <b>supérieure</b> à '+favp+'%, il peut y avoir de la valeur. Sinon, passe ton tour ou compare les cotes ailleurs.</span>';
+      var fl=(grids[sp]||grids.autre);
+      h='<b style="color:#deb23e">📊 Lecture probabiliste</b> · '+lbl+'<br>'+a+' : ~<b>'+na+'%</b> · '+b+' : ~<b>'+nb+'%</b><br>Favori implicite : <b>'+fav+'</b> ('+favp+'%). Marge bookmaker estimée : ~'+marge+'%.<br><span style="color:#9aa3c0">💡 Value : si tu estimes la vraie probabilité de '+fav+' <b>supérieure</b> à '+favp+'%, il peut y avoir de la valeur.</span><br><br><b style="color:#deb23e">🧭 À vérifier ('+lbl+')</b><br>• '+fl.join('<br>• ');
     }else{
-      h='<b style="color:#deb23e">🧭 Grille d\'analyse</b> — '+a+' vs '+b+' :<br>• Forme récente (5 derniers matchs)<br>• Confrontations directes (head-to-head)<br>• Absences / blessures / rotations<br>• Contexte : domicile, enjeu, fatigue, surface/météo<br>• Comparer les cotes entre opérateurs<br><span style="color:#9aa3c0">➕ Entre les cotes des deux camps ci-dessus pour une lecture probabiliste chiffrée.</span>';
+      var fl2=(grids[sp]||grids.autre);
+      h='<b style="color:#deb23e">🧭 Grille d\'analyse</b> · '+lbl+' — '+a+' vs '+b+' :<br>• '+fl2.join('<br>• ')+'<br><span style="color:#9aa3c0">➕ Entre les cotes des deux camps ci-dessus pour une lecture probabiliste chiffrée.</span>';
     }
     h+='<div style="margin-top:12px;padding:12px 14px;border:1px solid #3a2a5a;background:#1c1430;border-radius:8px;color:#c9b8e8;font-size:.88rem">🔞 Analyse <b>probabiliste</b>, jamais un gain garanti. L\'analyse IA complète (données détaillées, cote conseillée, indice de confiance) est réservée aux membres.</div><div style="margin-top:10px"><a href="https://one-vv1153.com/?p=f16t" rel="sponsored noopener" target="_blank" class="btn">🔓 Débloquer l\'analyse complète — code Saphir1</a></div>';
     out.innerHTML=h;
