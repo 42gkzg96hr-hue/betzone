@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, follow">
+<title>Redirection… | BetZone</title>
+<link rel="canonical" href="https://betzonebet.com/">
+<script>
+(function(){
+  var p = window.location.pathname || "/";
+  // Anciennes URLs GitHub Pages : /betzone/xxx -> /xxx
+  if (p.indexOf("/betzone/") === 0) {
+    var dest = p.replace("/betzone/", "/");
+    window.location.replace("https://betzonebet.com" + dest + window.location.search + window.location.hash);
+    return;
+  }
+  if (p === "/betzone" || p === "/betzone/") {
+    window.location.replace("https://betzonebet.com/");
+    return;
+  }
+  // Toute autre URL inconnue -> accueil après un court instant
+  setTimeout(function(){ window.location.replace("https://betzonebet.com/"); }, 1500);
+})();
+</script>
+<style>
+body{background:#0a0f28;color:#eef0f7;font-family:'Segoe UI',system-ui,-apple-system,sans-serif;display:flex;align-items:center;justify-content:center;min-height:100vh;margin:0;text-align:center}
+.box{max-width:520px;padding:30px}
+h1{color:#deb23e;font-size:1.6rem;margin-bottom:10px}
+a{color:#deb23e;font-weight:700}
+p{color:#9aa3c0}
+</style>
+</head>
+<body>
+<div class="box">
+<h1>Page introuvable</h1>
+<p>On te redirige vers BetZone… Si rien ne se passe, <a href="https://betzonebet.com/">clique ici pour revenir à l'accueil</a>.</p>
+<p style="font-size:.85rem;margin-top:20px">🔞 18+ · Jouez responsable.</p>
+</div>
+</body>
+</html>
