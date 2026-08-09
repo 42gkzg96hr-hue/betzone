@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 
 # Search engines
-Sitemap: https://42gkzg96hr-hue.github.io/betzone/sitemap.xml
+Sitemap: https://betzonebet.com/sitemap.xml
