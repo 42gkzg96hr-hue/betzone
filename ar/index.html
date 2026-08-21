@@ -105,7 +105,7 @@ footer .links a{margin-right:16px;font-size:.85rem}
 <script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, document, "clarity", "script", "y3y7q4e8st");</script>
 <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
 <script>window.OneSignalDeferred=window.OneSignalDeferred||[];OneSignalDeferred.push(async function(OneSignal){await OneSignal.init({appId:"1625bc81-029f-4061-a1d7-d356cd4abaef"});});</script>
-</head>
+<!--bz-speed-v1--><link rel="preconnect" href="https://cdn.onesignal.com" crossorigin><link rel="dns-prefetch" href="https://embed.tawk.to"><link rel="dns-prefetch" href="https://translate.google.com"><link rel="dns-prefetch" href="https://gc.zgo.at"><link rel="dns-prefetch" href="https://www.clarity.ms"></head>
 <body>
 <div style="background:#0c1330;border-bottom:1px solid #232c55;text-align:center;padding:7px 10px;font-size:.85rem;color:#9aa3c0">🌐 <a style="color:#deb23e" href="/index.html">FR</a> · <a style="color:#deb23e" href="/en/index.html">EN</a> · <a style="color:#deb23e" href="/es/index.html">ES</a> · <a style="color:#deb23e" href="/pt/index.html">PT</a> · <b style="color:#fff">AR</b> · <a style="color:#deb23e" href="/tr/index.html">TR</a> · <a style="color:#deb23e" href="/hi/index.html">HI</a></div>
 <header>
@@ -321,14 +321,14 @@ footer .links a{margin-right:16px;font-size:.85rem}
 
 <div id="gtranslate"><span class="lbl">🌐</span><span id="google_translate_element"></span></div>
 <script>function googleTranslateElementInit(){new google.translate.TranslateElement({pageLanguage:"ar",autoDisplay:false},'google_translate_element');}</script>
-<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<script>(function(){function bzLoadTr(){var s=document.createElement("script");s.src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";s.async=true;document.body.appendChild(s);}if(window.requestIdleCallback){window.addEventListener("load",function(){requestIdleCallback(bzLoadTr,{timeout:3000})})}else{window.addEventListener("load",function(){setTimeout(bzLoadTr,1200)})}})();</script>
 
 <div id="stickycta"><span class="t">🎁 مكافأة ترحيب بكود <b>Saphir1</b></span><a href="https://lkgp.pro/83221967" rel="sponsored noopener" target="_blank">التسجيل →</a></div>
 <!--Start of Tawk.to Script-->
 <script type="text/javascript">
 var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
 (function(){
-var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+/*bz-tawk-lazy*/var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
 s1.async=true;
 s1.src='https://embed.tawk.to/6a836be00557671d48a6431c/1k08lqpu3';
 s1.charset='UTF-8';
@@ -337,5 +337,30 @@ s0.parentNode.insertBefore(s1,s0);
 })();
 </script>
 <!--End of Tawk.to Script-->
+<!--bz-afftrack-v1-->
+<script>
+(function(){
+  var AFF="lkgp.pro", TG="t.me";
+  function slug(){var p=location.pathname.replace(/^\//,'')||'home';return p.replace(/\.html$/,'')||'home';}
+  function send(kind,dest){
+    var page=slug(), label=kind+'/'+page;
+    // GoatCounter
+    try{ if(window.goatcounter&&goatcounter.count){ goatcounter.count({path:'click-'+label,title:'CLICK '+kind+' — '+page,event:true}); } }catch(e){}
+    // Microsoft Clarity : tag + event
+    try{ if(window.clarity){ clarity('set','aff_click',label); clarity('event','click_'+kind); } }catch(e){}
+    // Google Analytics 4 (si présent un jour)
+    try{ if(window.gtag){ gtag('event','affiliate_click',{link_type:kind,page_slug:page,destination:dest}); } }catch(e){}
+    // mémo local : compteur par page (visible en console via bzStats())
+    try{ var k='bz_clicks', d=JSON.parse(localStorage.getItem(k)||'{}'); d[label]=(d[label]||0)+1; localStorage.setItem(k,JSON.stringify(d)); }catch(e){}
+  }
+  document.addEventListener('click',function(ev){
+    var a=ev.target&&ev.target.closest?ev.target.closest('a'):null;
+    if(!a||!a.href) return;
+    if(a.href.indexOf(AFF)>-1) send('affiliate',a.href);
+    else if(a.href.indexOf(TG)>-1) send('telegram',a.href);
+  },true);
+  window.bzStats=function(){try{return JSON.parse(localStorage.getItem('bz_clicks')||'{}')}catch(e){return{}}};
+})();
+</script>
 </body>
 </html>
