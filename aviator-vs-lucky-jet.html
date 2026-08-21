@@ -158,5 +158,30 @@ header{backdrop-filter:blur(9px);-webkit-backdrop-filter:blur(9px)}
 <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 <style>#stickycta{position:fixed;left:0;right:0;bottom:0;z-index:9998;background:linear-gradient(135deg,#141c42,#1a2450);border-top:1px solid #deb23e;display:flex;align-items:center;justify-content:center;gap:14px;padding:10px 16px;flex-wrap:wrap;box-shadow:0 -4px 18px rgba(0,0,0,.5)}#stickycta .t{color:#fff;font-weight:700;font-size:.92rem}#stickycta .t b{color:#deb23e}#stickycta a{display:inline-block;background:linear-gradient(135deg,#deb23e,#f0cd6e);color:#14183a;font-weight:800;padding:9px 20px;border-radius:10px;text-decoration:none;font-size:.95rem}body{padding-bottom:62px}</style>
 <div id="stickycta"><span class="t">🎁 Bonus de bienvenue avec le code <b>Saphir1</b></span><a href="https://lkgp.pro/83221967">S'inscrire →</a></div>
+<!--bz-afftrack-v1-->
+<script>
+(function(){
+  var AFF="lkgp.pro", TG="t.me";
+  function slug(){var p=location.pathname.replace(/^\//,'')||'home';return p.replace(/\.html$/,'')||'home';}
+  function send(kind,dest){
+    var page=slug(), label=kind+'/'+page;
+    // GoatCounter
+    try{ if(window.goatcounter&&goatcounter.count){ goatcounter.count({path:'click-'+label,title:'CLICK '+kind+' — '+page,event:true}); } }catch(e){}
+    // Microsoft Clarity : tag + event
+    try{ if(window.clarity){ clarity('set','aff_click',label); clarity('event','click_'+kind); } }catch(e){}
+    // Google Analytics 4 (si présent un jour)
+    try{ if(window.gtag){ gtag('event','affiliate_click',{link_type:kind,page_slug:page,destination:dest}); } }catch(e){}
+    // mémo local : compteur par page (visible en console via bzStats())
+    try{ var k='bz_clicks', d=JSON.parse(localStorage.getItem(k)||'{}'); d[label]=(d[label]||0)+1; localStorage.setItem(k,JSON.stringify(d)); }catch(e){}
+  }
+  document.addEventListener('click',function(ev){
+    var a=ev.target&&ev.target.closest?ev.target.closest('a'):null;
+    if(!a||!a.href) return;
+    if(a.href.indexOf(AFF)>-1) send('affiliate',a.href);
+    else if(a.href.indexOf(TG)>-1) send('telegram',a.href);
+  },true);
+  window.bzStats=function(){try{return JSON.parse(localStorage.getItem('bz_clicks')||'{}')}catch(e){return{}}};
+})();
+</script>
 </body>
 </html>

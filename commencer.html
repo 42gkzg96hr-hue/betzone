@@ -180,5 +180,30 @@ header{backdrop-filter:blur(9px);-webkit-backdrop-filter:blur(9px)}
 <div id="gtranslate"><span class="lbl">&#127760; Langue</span><span id="google_translate_element"></span></div>
 <script>function googleTranslateElementInit(){new google.translate.TranslateElement({pageLanguage:"fr",autoDisplay:false},'google_translate_element');}</script>
 <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<!--bz-afftrack-v1-->
+<script>
+(function(){
+  var AFF="lkgp.pro", TG="t.me";
+  function slug(){var p=location.pathname.replace(/^\//,'')||'home';return p.replace(/\.html$/,'')||'home';}
+  function send(kind,dest){
+    var page=slug(), label=kind+'/'+page;
+    // GoatCounter
+    try{ if(window.goatcounter&&goatcounter.count){ goatcounter.count({path:'click-'+label,title:'CLICK '+kind+' — '+page,event:true}); } }catch(e){}
+    // Microsoft Clarity : tag + event
+    try{ if(window.clarity){ clarity('set','aff_click',label); clarity('event','click_'+kind); } }catch(e){}
+    // Google Analytics 4 (si présent un jour)
+    try{ if(window.gtag){ gtag('event','affiliate_click',{link_type:kind,page_slug:page,destination:dest}); } }catch(e){}
+    // mémo local : compteur par page (visible en console via bzStats())
+    try{ var k='bz_clicks', d=JSON.parse(localStorage.getItem(k)||'{}'); d[label]=(d[label]||0)+1; localStorage.setItem(k,JSON.stringify(d)); }catch(e){}
+  }
+  document.addEventListener('click',function(ev){
+    var a=ev.target&&ev.target.closest?ev.target.closest('a'):null;
+    if(!a||!a.href) return;
+    if(a.href.indexOf(AFF)>-1) send('affiliate',a.href);
+    else if(a.href.indexOf(TG)>-1) send('telegram',a.href);
+  },true);
+  window.bzStats=function(){try{return JSON.parse(localStorage.getItem('bz_clicks')||'{}')}catch(e){return{}}};
+})();
+</script>
 </body>
 </html>
