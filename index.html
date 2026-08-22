@@ -186,8 +186,10 @@ table{display:block;overflow-x:auto;white-space:nowrap}
   transition:width .22s ease,border-radius .22s ease,background .22s ease}
 #gtranslate:hover,#gtranslate:focus-within{width:186px;border-radius:19px;padding:0 10px!important;
   justify-content:flex-start;gap:7px!important}
-#gtranslate .lbl{flex:0 0 auto;font-size:1.05rem;line-height:1;padding:0 0 0 1px}
-#gtranslate:hover .lbl,#gtranslate:focus-within .lbl{padding-left:2px}
+/* la pastille n'affiche que le globe : on neutralise le libellé texte */
+#gtranslate .lbl{flex:0 0 auto;font-size:0!important;line-height:1;width:18px;text-align:center}
+#gtranslate .lbl::before{content:"\1F310";font-size:1.05rem;line-height:1;
+  font-family:var(--bz-emoji),sans-serif}
 #gtranslate #google_translate_element{opacity:0;width:0;transition:opacity .18s ease .04s}
 #gtranslate:hover #google_translate_element,
 #gtranslate:focus-within #google_translate_element{opacity:1;width:auto}
