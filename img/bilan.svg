@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" role="img" aria-label="Bilan public">
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0" stop-color="#0a0f28"/><stop offset="1" stop-color="#131b3f"/></linearGradient>
+<radialGradient id="glow" cx=".18" cy="-.1" r=".9">
+<stop offset="0" stop-color="#deb23e" stop-opacity=".16"/><stop offset="1" stop-color="#deb23e" stop-opacity="0"/></radialGradient>
+<radialGradient id="bzg" cx=".35" cy=".3" r=".8">
+<stop offset="0" stop-color="#1b2a6b"/><stop offset="1" stop-color="#0a0f28"/></radialGradient>
+</defs>
+<rect width="1200" height="300" rx="18" fill="url(#bg)"/>
+<rect width="1200" height="300" rx="18" fill="url(#glow)"/>
+<rect x="720" y="114" width="38" height="126" rx="3" fill="#3ddc84" fill-opacity=".30"/>
+<rect x="782" y="126" width="38" height="114" rx="3" fill="#3ddc84" fill-opacity=".30"/>
+<rect x="845" y="157" width="38" height="83" rx="3" fill="#3ddc84" fill-opacity=".30"/>
+<rect x="907" y="184" width="38" height="56" rx="3" fill="#3ddc84" fill-opacity=".30"/>
+<rect x="970" y="184" width="38" height="56" rx="3" fill="#3ddc84" fill-opacity=".30"/>
+<rect x="1032" y="129" width="38" height="111" rx="3" fill="#3ddc84" fill-opacity=".30"/>
+<rect x="1094" y="119" width="38" height="121" rx="3" fill="#3ddc84" fill-opacity=".30"/>
+<path d="M742 114 L804 126 L866 157 L929 184 L991 184 L1054 129 L1116 119" fill="none" stroke="#3ddc84" stroke-opacity=".75" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="78" cy="150.0" r="34" fill="url(#bzg)" stroke="#deb23e" stroke-width="3.1"/><text x="78" y="160" text-anchor="middle" fill="#deb23e" font-family="Space Grotesk,Inter,sans-serif" font-weight="700" font-size="28">BZ</text>
+<text x="132" y="144" fill="#eef0f7" font-family="Space Grotesk,Inter,sans-serif"
+      font-weight="700" font-size="34" letter-spacing="-0.5">Bilan public</text>
+<text x="132" y="176" fill="#9aa3c0" font-family="Inter,sans-serif"
+      font-size="17" letter-spacing="1.6">BETZONE · 18+</text>
+<rect x="132" y="190" width="86" height="4" rx="2" fill="#deb23e"/>
+<rect width="1200" height="300" rx="18" fill="none" stroke="#222b57" stroke-width="2"/>
+</svg>
