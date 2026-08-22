@@ -146,9 +146,7 @@ body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 section{padding:44px 0}
 section+section{border-top:1px solid rgba(35,44,85,.55)}
 h2.sec,h2{scroll-margin-top:90px}
-h2.sec{font-size:clamp(1.45rem,2.6vw,1.85rem);line-height:1.22;margin-bottom:8px}
-h2.sec::after{content:"";display:block;width:46px;height:3px;border-radius:3px;
-  background:linear-gradient(90deg,var(--gold,#deb23e),transparent);margin-top:12px}
+h2.sec{font-size:clamp(1.45rem,2.6vw,1.85rem);line-height:1.22;margin-bottom:10px}
 .sub{margin-bottom:26px;line-height:1.6}
 
 /* -- 4. Hero : moins de vide, le contenu remonte au-dessus de la ligne de flottaison -- */
@@ -181,10 +179,23 @@ table{display:block;overflow-x:auto;white-space:nowrap}
 @media(min-width:700px){table{display:table;white-space:normal}}
 
 /* -- 6. Widgets flottants : plus aucun chevauchement -- */
-/* sélecteur de langue → en bas À GAUCHE, le chat reste à droite */
+/* Sélecteur de langue : pastille discrète en bas à gauche, qui s'ouvre au survol */
 #gtranslate{left:14px!important;right:auto!important;bottom:74px!important;z-index:9996!important;
-  opacity:.92;transition:opacity .18s ease}
-#gtranslate:hover{opacity:1}
+  padding:0!important;gap:0!important;overflow:hidden;
+  width:38px;height:38px;border-radius:19px;justify-content:center;
+  transition:width .22s ease,border-radius .22s ease,background .22s ease}
+#gtranslate:hover,#gtranslate:focus-within{width:186px;border-radius:19px;padding:0 10px!important;
+  justify-content:flex-start;gap:7px!important}
+#gtranslate .lbl{flex:0 0 auto;font-size:1.05rem;line-height:1;padding:0 0 0 1px}
+#gtranslate:hover .lbl,#gtranslate:focus-within .lbl{padding-left:2px}
+#gtranslate #google_translate_element{opacity:0;width:0;transition:opacity .18s ease .04s}
+#gtranslate:hover #google_translate_element,
+#gtranslate:focus-within #google_translate_element{opacity:1;width:auto}
+/* on masque le « Fourni par Google » et on compacte le menu */
+#gtranslate .goog-te-gadget{font-size:0!important;line-height:0!important;color:transparent!important}
+#gtranslate .goog-te-gadget>span,#gtranslate .goog-te-gadget a{display:none!important}
+#gtranslate .goog-te-combo{font-size:.82rem!important;line-height:normal!important;
+  max-width:132px;margin:0!important;padding:4px 6px!important}
 /* le chat Tawk remonte au-dessus de la barre CTA */
 iframe[title*="chat" i]{bottom:74px!important;z-index:9997!important}
 /* barre CTA collante : au-dessus de tout, hauteur maîtrisée */
@@ -192,8 +203,8 @@ iframe[title*="chat" i]{bottom:74px!important;z-index:9997!important}
 #stickycta .t{font-size:.9rem}
 body{padding-bottom:64px!important}
 @media(max-width:600px){
-  #gtranslate{bottom:70px!important;left:10px!important;padding:4px 7px!important}
-  #gtranslate .lbl{display:none}
+  #gtranslate{bottom:70px!important;left:10px!important;width:34px;height:34px;border-radius:17px}
+  #gtranslate:hover,#gtranslate:focus-within{width:172px}
   iframe[title*="chat" i]{bottom:70px!important}
   #stickycta{padding:8px 12px!important}
   #stickycta .t{font-size:.82rem}
