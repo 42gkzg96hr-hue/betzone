@@ -101,7 +101,109 @@ header{backdrop-filter:blur(9px);-webkit-backdrop-filter:blur(9px)}
 .faq{transition:border-color .18s ease}.faq:hover{border-color:rgba(222,178,62,.4)}
 @media(max-width:600px){.hero{padding-top:32px!important}}
 </style>
-</head>
+<!--bz-speed-v1--><link rel="preconnect" href="https://cdn.onesignal.com" crossorigin><link rel="dns-prefetch" href="https://embed.tawk.to"><link rel="dns-prefetch" href="https://translate.google.com"><link rel="dns-prefetch" href="https://gc.zgo.at"><link rel="dns-prefetch" href="https://www.clarity.ms"><!--bz-polish-v1--><style>
+/* ============ BetZone · finition visuelle v1 ============ */
+:root{--bz-emoji:"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji","Twemoji Mozilla";
+      --bz-sans:'Inter',system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+      --bz-head:'Space Grotesk','Inter',system-ui,sans-serif}
+
+/* -- 1. Typographie : emoji en couleur partout (fini les carrés gris) -- */
+body,.btn,.item,.card,.trust,.cta,.faq,.step,#stickycta,.badge,footer,article{
+  font-family:var(--bz-sans),var(--bz-emoji)!important}
+h1,h2,h3,h4,.sec,.hero h1,.logo{font-family:var(--bz-head),var(--bz-emoji)!important;letter-spacing:-.02em}
+.em,.card .em{font-family:var(--bz-emoji),var(--bz-sans)!important;line-height:1}
+body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+
+/* -- 2. Grilles : plus d'orpheline toute seule en bout de ligne -- */
+.grid{align-items:stretch}
+.grid>*{display:flex;flex-direction:column;min-width:0}
+.grid>*>p:last-child{margin-bottom:0}
+@media(min-width:820px){
+  .grid:has(>:nth-child(4):last-child){grid-template-columns:repeat(2,minmax(0,1fr))}
+  .grid:has(>:nth-child(2):last-child){grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(min-width:1000px){
+  .grid:has(>:nth-child(3):last-child){grid-template-columns:repeat(3,minmax(0,1fr))}
+  .grid:has(>:nth-child(6):last-child){grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+
+/* -- 3. Rythme vertical : sections mieux séparées, titres mieux ancrés -- */
+section{padding:44px 0}
+section+section{border-top:1px solid rgba(35,44,85,.55)}
+h2.sec,h2{scroll-margin-top:90px}
+h2.sec{font-size:clamp(1.45rem,2.6vw,1.85rem);line-height:1.22;margin-bottom:10px}
+.sub{margin-bottom:26px;line-height:1.6}
+
+/* -- 4. Hero : moins de vide, le contenu remonte au-dessus de la ligne de flottaison -- */
+.hero{padding-top:38px!important;padding-bottom:26px!important}
+.hero h1{line-height:1.14;margin-bottom:14px}
+.hero .lede{margin-bottom:24px}
+.cta-row{gap:12px!important;margin-top:4px}
+.trust{margin-top:22px!important;gap:10px 22px!important}
+
+/* -- 5. Cartes & boutons : relief cohérent -- */
+.card{box-shadow:0 2px 10px rgba(0,0,0,.18)}
+.card:hover{transform:translateY(-4px);border-color:rgba(222,178,62,.55);
+  box-shadow:0 16px 36px rgba(0,0,0,.45)}
+.btn{transition:transform .16s ease,box-shadow .16s ease,filter .16s ease;
+  box-shadow:0 6px 18px rgba(222,178,62,.20)}
+.btn:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(222,178,62,.34)}
+.btn.o{box-shadow:none}.btn.o:hover{background:rgba(222,178,62,.12);box-shadow:none}
+.btn.tg{box-shadow:0 6px 18px rgba(34,158,217,.24)}
+.btn.tg:hover{box-shadow:0 12px 28px rgba(34,158,217,.38)}
+.faq:hover{border-color:rgba(222,178,62,.42)}
+a,.item{transition:color .16s ease}
+:focus-visible{outline:2px solid var(--gold,#deb23e);outline-offset:3px;border-radius:6px}
+::selection{background:var(--gold,#deb23e);color:#0a0f28}
+html{scroll-behavior:smooth}
+header{backdrop-filter:blur(9px);-webkit-backdrop-filter:blur(9px)}
+.logo .bz{box-shadow:0 0 16px rgba(222,178,62,.32)}
+.badge{box-shadow:inset 0 0 0 1px rgba(222,178,62,.26)}
+img{max-width:100%;height:auto}
+table{display:block;overflow-x:auto;white-space:nowrap}
+@media(min-width:700px){table{display:table;white-space:normal}}
+
+/* -- 6. Widgets flottants : plus aucun chevauchement -- */
+/* Sélecteur de langue : pastille discrète en bas à gauche, qui s'ouvre au survol */
+#gtranslate{left:14px!important;right:auto!important;bottom:74px!important;z-index:9996!important;
+  padding:0!important;gap:0!important;overflow:hidden;
+  width:38px;height:38px;border-radius:19px;justify-content:center;
+  transition:width .22s ease,border-radius .22s ease,background .22s ease}
+#gtranslate:hover,#gtranslate:focus-within{width:186px;border-radius:19px;padding:0 10px!important;
+  justify-content:flex-start;gap:7px!important}
+/* la pastille n'affiche que le globe : on neutralise le libellé texte */
+#gtranslate .lbl{flex:0 0 auto;font-size:0!important;line-height:1;width:18px;text-align:center}
+#gtranslate .lbl::before{content:"\1F310";font-size:1.05rem;line-height:1;
+  font-family:var(--bz-emoji),sans-serif}
+#gtranslate #google_translate_element{opacity:0;width:0;transition:opacity .18s ease .04s}
+#gtranslate:hover #google_translate_element,
+#gtranslate:focus-within #google_translate_element{opacity:1;width:auto}
+/* on masque le « Fourni par Google » et on compacte le menu */
+#gtranslate .goog-te-gadget{font-size:0!important;line-height:0!important;color:transparent!important}
+#gtranslate .goog-te-gadget>span,#gtranslate .goog-te-gadget a{display:none!important}
+#gtranslate .goog-te-combo{font-size:.82rem!important;line-height:normal!important;
+  max-width:132px;margin:0!important;padding:4px 6px!important}
+/* le chat Tawk remonte au-dessus de la barre CTA */
+iframe[title*="chat" i]{bottom:74px!important;z-index:9997!important}
+/* barre CTA collante : au-dessus de tout, hauteur maîtrisée */
+#stickycta{z-index:9999!important;padding:9px 16px!important;gap:12px!important}
+#stickycta .t{font-size:.9rem}
+body{padding-bottom:64px!important}
+@media(max-width:600px){
+  #gtranslate{bottom:70px!important;left:10px!important;width:34px;height:34px;border-radius:17px}
+  #gtranslate:hover,#gtranslate:focus-within{width:172px}
+  iframe[title*="chat" i]{bottom:70px!important}
+  #stickycta{padding:8px 12px!important}
+  #stickycta .t{font-size:.82rem}
+  .hero{padding-top:26px!important}
+  section{padding:32px 0}
+}
+</style><script>
+window.Tawk_API=window.Tawk_API||{};
+window.Tawk_API.customStyle={visibility:{
+  desktop:{position:'br',xOffset:20,yOffset:74},
+  mobile:{position:'br',xOffset:10,yOffset:70}}};
+</script></head>
 <body>
 <header><nav class="nav">
     <a href="../index.html" class="logo"><span class="bz">BZ</span> BetZone</a>
@@ -142,6 +244,31 @@ header{backdrop-filter:blur(9px);-webkit-backdrop-filter:blur(9px)}
 <style>.goog-te-banner-frame,.goog-logo-link,.goog-te-gadget span,.skiptranslate iframe{display:none!important}body{top:0!important}#gtranslate{position:fixed;bottom:70px;right:14px;z-index:9999;background:#141c42;border:1px solid #deb23e;border-radius:10px;padding:6px 9px;box-shadow:0 4px 14px rgba(0,0,0,.45);display:flex;align-items:center;gap:6px}#gtranslate .lbl{color:#deb23e;font-size:.82rem;font-weight:700}#gtranslate .goog-te-combo{color:#0a0f28;font-weight:700;border:none;border-radius:6px;padding:4px 6px;font-size:.9rem;max-width:150px}</style>
 <div id="gtranslate"><span class="lbl">&#127760;</span><span id="google_translate_element"></span></div>
 <script>function googleTranslateElementInit(){new google.translate.TranslateElement({pageLanguage:"fr",autoDisplay:false},'google_translate_element');}</script>
-<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<script>(function(){function bzLoadTr(){var s=document.createElement("script");s.src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";s.async=true;document.body.appendChild(s);}if(window.requestIdleCallback){window.addEventListener("load",function(){requestIdleCallback(bzLoadTr,{timeout:3000})})}else{window.addEventListener("load",function(){setTimeout(bzLoadTr,1200)})}})();</script>
+<!--bz-afftrack-v1-->
+<script>
+(function(){
+  var AFF="lkgp.pro", TG="t.me";
+  function slug(){var p=location.pathname.replace(/^\//,'')||'home';return p.replace(/\.html$/,'')||'home';}
+  function send(kind,dest){
+    var page=slug(), label=kind+'/'+page;
+    // GoatCounter
+    try{ if(window.goatcounter&&goatcounter.count){ goatcounter.count({path:'click-'+label,title:'CLICK '+kind+' — '+page,event:true}); } }catch(e){}
+    // Microsoft Clarity : tag + event
+    try{ if(window.clarity){ clarity('set','aff_click',label); clarity('event','click_'+kind); } }catch(e){}
+    // Google Analytics 4 (si présent un jour)
+    try{ if(window.gtag){ gtag('event','affiliate_click',{link_type:kind,page_slug:page,destination:dest}); } }catch(e){}
+    // mémo local : compteur par page (visible en console via bzStats())
+    try{ var k='bz_clicks', d=JSON.parse(localStorage.getItem(k)||'{}'); d[label]=(d[label]||0)+1; localStorage.setItem(k,JSON.stringify(d)); }catch(e){}
+  }
+  document.addEventListener('click',function(ev){
+    var a=ev.target&&ev.target.closest?ev.target.closest('a'):null;
+    if(!a||!a.href) return;
+    if(a.href.indexOf(AFF)>-1) send('affiliate',a.href);
+    else if(a.href.indexOf(TG)>-1) send('telegram',a.href);
+  },true);
+  window.bzStats=function(){try{return JSON.parse(localStorage.getItem('bz_clicks')||'{}')}catch(e){return{}}};
+})();
+</script>
 </body>
 </html>
