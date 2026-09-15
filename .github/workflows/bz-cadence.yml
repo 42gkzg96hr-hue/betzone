@@ -1,0 +1,91 @@
+name: BZ - cadence bilan
+on:
+  workflow_dispatch:
+    inputs:
+      apply:
+        description: "true = ecrire et commiter / false = rapport seul"
+        required: true
+        default: "false"
+permissions:
+  contents: write
+jobs:
+  cadence:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Corriger la cadence annoncee
+        run: |
+          cat > /tmp/cad.py <<'PYEOF'
+          import os, sys
+
+          APPLY = (len(sys.argv) > 1 and sys.argv[1].strip().lower() == 'true')
+
+          RULES = [
+            ("updated automatically every morning",
+             "updated on match days"),
+            ("mis \u00e0 jour automatiquement chaque matin",
+             "mis \u00e0 jour les jours de match"),
+            ("PUBLIC TRACK RECORD \u00b7 UPDATED EVERY MORNING",
+             "PUBLIC TRACK RECORD \u00b7 UPDATED ON MATCH DAYS"),
+            ("Each day's picks are added in the morning with a \u23f3 status, then updated to \u2705/\u274c the next day once official results are in.",
+             "Picks are published before kick-off with a \u23f3 status, then updated to \u2705/\u274c once the official result is in. No pick was published between 7 and 15 September 2026: that gap stays visible here rather than being quietly filled in."),
+            ("automatic update every morning around 8am (Paris time)",
+             "picks published before kick-off, results added the day after \u00b7 gaps are shown, never back-filled"),
+            ("Bilan transparent</b> publi\u00e9 chaque matin",
+             "Bilan transparent</b>, gagn\u00e9 comme perdu"),
+            ("Bilan transparent publi\u00e9 chaque matin",
+             "Bilan transparent, gagn\u00e9 comme perdu"),
+          ]
+
+          hits = {}
+          files = []
+          for root, dirs, names in os.walk('.'):
+              dirs[:] = [d for d in dirs if d not in ('.git', '.github')]
+              for nm in names:
+                  if nm.lower().endswith(('.html', '.xml', '.json')):
+                      files.append(os.path.join(root, nm))
+          files.sort()
+
+          touched = 0
+          for p in files:
+              try:
+                  src = open(p, encoding='utf-8').read()
+              except Exception:
+                  continue
+              s = src
+              for a, b in RULES:
+                  if a in s:
+                      n = s.count(a)
+                      hits[a[:38]] = hits.get(a[:38], 0) + n
+                      s = s.replace(a, b)
+              if s != src:
+                  touched += 1
+                  if APPLY:
+                      open(p, 'w', encoding='utf-8').write(s)
+
+          reste = 0
+          for p in files:
+              try:
+                  t = open(p, encoding='utf-8').read()
+              except Exception:
+                  continue
+              low = t.lower()
+              if 'every morning' in low or 'chaque matin' in low:
+                  reste += 1
+
+          print('=== CADENCE ===')
+          print('mode     :', 'ECRITURE' if APPLY else 'SIMULATION')
+          print('fichiers touches :', touched)
+          for k in sorted(hits):
+              print('  %-40s %d' % (k, hits[k]))
+          print('fichiers restants avec la promesse :', reste)
+          PYEOF
+          python3 /tmp/cad.py "${{ github.event.inputs.apply }}"
+      - name: Commit
+        if: github.event.inputs.apply == 'true'
+        run: |
+          git config user.name "bz-bot"
+          git config user.email "bz-bot@users.noreply.github.com"
+          git add -A
+          git diff --cached --quiet || git commit -m "Bilan : annoncer la vraie cadence et assumer le trou du 7 au 15 septembre"
+          git push
