@@ -13,210 +13,105 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Nettoyage
+      - name: Reboucher les trous
         run: |
-          cat > /tmp/bz.py <<'PYEOF'
+          cat > /tmp/bz2.py <<'PYEOF'
           import os, re, sys
 
           APPLY = (len(sys.argv) > 1 and sys.argv[1].strip().lower() == 'true')
-          EXT = ('.html', '.htm', '.xml', '.json', '.txt', '.md')
-          SKIP_DIRS = ('.git', '.github')
 
-          TGA = r'<a\b[^>]*?t\.me[^>]*?>.*?</a>'
-          HAS = re.compile(r't\.me|[Tt]elegram|TELEGRAM')
+          ANS = {
+            'fr': "Inscris-toi sur 1win avec le code Saphir1 et fais ton dépôt : tu débloques les analyses complètes. Le bilan public reste consultable sur le site.",
+            'en': "Sign up on 1win with code Saphir1 and make your deposit to unlock the full AI analyses. The public track record stays on the site.",
+            'es': "Regístrate en 1win con el código Saphir1 y haz tu depósito para desbloquear los análisis completos. El historial público sigue en el sitio.",
+            'pt': "Cadastre-se na 1win com o código Saphir1 e faça seu depósito para desbloquear as análises completas. O histórico público continua no site.",
+            'hi': "प्रोमो कोड Saphir1 है। रजिस्ट्रेशन के समय इसे डालें और डिपॉज़िट करें — वेलकम बोनस और पूरा AI विश्लेषण अनलॉक हो जाएगा।",
+            'tr': "Saphir1 koduyla 1win'e kaydol ve yatırımını yap: tüm yapay zekâ analizleri açılır. Herkese açık performans kaydı sitede kalır.",
+            'ja': "プロモコードSaphir1で1winに登録し入金すると、AI分析のすべてが解放されます。公開実績はサイト上で確認できます。",
+            'zh': "使用促销码 Saphir1 在 1win 注册并存款，即可解锁全部 AI 分析。公开战绩始终保留在本站。",
+            'th': "สมัคร 1win ด้วยโค้ด Saphir1 แล้วฝากเงิน เพื่อปลดล็อกบทวิเคราะห์ AI ทั้งหมด สถิติสาธารณะยังอยู่บนเว็บไซต์",
+            'vi': "Đăng ký 1win với mã Saphir1 và nạp tiền để mở khóa toàn bộ phân tích AI. Thành tích công khai vẫn nằm trên trang web.",
+            'ms': "Daftar di 1win dengan kod Saphir1 dan buat deposit untuk membuka semua analisis AI. Rekod awam kekal di laman web.",
+            'no': "Registrer deg på 1win med koden Saphir1 og sett inn penger for å låse opp alle AI-analysene. De offentlige resultatene ligger fortsatt på nettstedet.",
+            'sv': "Registrera dig på 1win med koden Saphir1 och gör din insättning för att låsa upp alla AI-analyser. De offentliga resultaten finns kvar på webbplatsen.",
+          }
 
-          stats = {}
-          def bump(k, n=1):
-              if n:
-                  stats[k] = stats.get(k, 0) + n
+          STEP = {
+            'fr': "Débloque les analyses complètes avec ton compte 1win, et suis le bilan public sur le site.",
+            'en': "Unlock the full analyses with your 1win account, and follow the public track record on the site.",
+            'es': "Desbloquea los análisis completos con tu cuenta 1win y sigue el historial público en el sitio.",
+            'pt': "Desbloqueie as análises completas com sua conta 1win e acompanhe o histórico público no site.",
+            'hi': "अपने 1win अकाउंट से पूरा विश्लेषण अनलॉक करें और साइट पर सार्वजनिक रिकॉर्ड देखें।",
+            'tr': "1win hesabınla tüm analizleri aç ve herkese açık performans kaydını sitede takip et.",
+          }
 
-          HAND = [
-            (r'Rejoins gratuitement notre ' + TGA + r' pour le prono du jour, et inscris-toi',
-             'Inscris-toi'),
-            (r'Rejoins notre Telegram gratuit pour le prono du jour et le bilan transparent, gagné comme perdu\.',
-             "Débloque le robot d'analyse IA avec ton ID joueur 1win, et suis le bilan public sur le site."),
-            (r'Rejoins notre Telegram gratuit pour le prono du jour et le bilan transparent\.',
-             "Débloque le robot d'analyse IA avec ton ID joueur 1win, et suis le bilan public sur le site."),
-            (r'Pronos complets \+ bilan sur le Telegram', 'Analyses complètes et bilan public'),
-            (r'Pronos complets \+ bilan sur Telegram', 'Analyses complètes et bilan public'),
-            (r'Join our free Telegram[^<.]*\.',
-             'Unlock the AI analysis robot with your 1win player ID, and follow the public track record on the site.'),
-            (r'and get our detailed AI-assisted analyses plus a track record on Telegram',
-             'and get our detailed AI-assisted analyses plus the public track record'),
-          ]
+          SITEWEB = "Non. Une audience suffit : compte X, page Facebook, groupe, chaîne vidéo ou site. Ce qui compte, c'est de publier honnêtement et de respecter le 18+."
+          PROMO = "Partage ton lien là où tu es déjà suivi : X, Facebook, WhatsApp, YouTube ou ton propre site. Sois honnête sur les risques et respecte le 18+."
 
-          def drop_blocks(s, tag, need_class=None, skip_class=None):
-              n = 0
-              pat = re.compile(
-                  r'<' + tag + r'\b([^>]*)>((?:(?!<' + tag + r'\b|</' + tag + r'>).)*?)</' + tag + r'>',
-                  re.S)
-              while True:
-                  hit = None
-                  for m in pat.finditer(s):
-                      attrs, inner = m.group(1), m.group(2)
-                      if not HAS.search(inner):
-                          continue
-                      cm = re.search(r'class\s*=\s*"([^"]*)"', attrs)
-                      cls = cm.group(1) if cm else ''
-                      if need_class and need_class not in cls:
-                          continue
-                      if skip_class and skip_class in cls:
-                          continue
-                      hit = m
-                      break
-                  if not hit:
-                      break
-                  s = s[:hit.start()] + s[hit.end():]
-                  n += 1
-              return s, n
+          FAQ = re.compile(r'(<div class="faq"[^>]*>)((?:(?!<div|</div>).)*?)(</div>)', re.S)
+          STP = re.compile(r'(<div class="card step"[^>]*>)((?:(?!<div|</div>).)*?)(</div>)', re.S)
 
-          SENT_START = '>.!?—–'
-          SENT_END = '.!?'
-          TRAIL = re.compile(r'[ \t]*[—–\-:,;]+[ \t]*$')
-
-          def kill_sentence(s, a, b):
-              i = a - 1
-              while i >= 0 and s[i] not in SENT_START and s[i] != '<':
-                  i -= 1
-              left = i + 1
-              j = b
-              while j < len(s) and s[j] not in SENT_END and s[j] != '<':
-                  j += 1
-              if j < len(s) and s[j] in SENT_END:
-                  j += 1
-              head = TRAIL.sub('', s[:left])
-              return head + s[j:]
-
-          ANCHOR = re.compile(r'<a\b[^>]*>.*?</a>', re.S)
-
-          def is_tg(open_tag):
-              m = re.search(r'href\s*=\s*"([^"]*)"', open_tag)
-              if not m:
-                  return False
-              h = m.group(1).strip().lower()
-              return ('t.me' in h) or h == '#telegram'
-
-          def is_btn(open_tag):
-              m = re.search(r'class\s*=\s*"([^"]*)"', open_tag)
-              return bool(m) and 'btn' in m.group(1)
-
-          def pass_anchors(s):
-              nb = np = 0
-              for _ in range(60):
-                  found = None
-                  for m in ANCHOR.finditer(s):
-                      t = m.group(0)
-                      ot = t[:t.find('>') + 1]
-                      if is_tg(ot):
-                          found = (m, is_btn(ot))
-                          break
-                  if not found:
-                      break
-                  m, btn = found
-                  if btn:
-                      s = s[:m.start()] + s[m.end():]
-                      nb += 1
-                  else:
-                      s = kill_sentence(s, m.start(), m.end())
-                      np += 1
-              return s, nb, np
-
-          LDJ = re.compile(r'(<script type="application/ld\+json">)(.*?)(</script>)', re.S)
-
-          def clean_ld(s):
-              n = [0]
-              def one(m):
-                  body = m.group(2)
-                  def fix(sm):
-                      v = sm.group(1)
-                      if 'elegram' not in v and 't.me' not in v:
-                          return sm.group(0)
-                      n[0] += 1
-                      parts = re.split(r'(?<=[.!?]) ', v)
-                      parts = [p for p in parts if 'elegram' not in p and 't.me' not in p]
-                      nv = ' '.join(parts).strip()
-                      if not nv:
-                          nv = "Inscris-toi sur 1win avec le code Saphir1 et fais ton depot."
-                      return '"' + nv + '"'
-                  return m.group(1) + re.sub(r'"((?:[^"\\]|\\.)*)"', fix, body) + m.group(3)
-              return LDJ.sub(one, s), n[0]
-
-          EMPTY = [
-              (re.compile(r'<p\b[^>]*>\s*</p>'), ''),
-              (re.compile(r'<li\b[^>]*>\s*</li>'), ''),
-              (re.compile(r'<span\b[^>]*>\s*</span>'), ''),
-          ]
-
+          nf = ns = 0
           files = []
           for root, dirs, names in os.walk('.'):
-              dirs[:] = [d for d in dirs if d not in SKIP_DIRS]
+              dirs[:] = [d for d in dirs if d not in ('.git', '.github')]
               for nm in names:
-                  if nm.lower().endswith(EXT):
+                  if nm.lower().endswith('.html'):
                       files.append(os.path.join(root, nm))
           files.sort()
 
-          touched = 0
-          residual = []
           for p in files:
               try:
                   src = open(p, encoding='utf-8').read()
               except Exception:
                   continue
-              if not HAS.search(src):
-                  continue
+              lm = re.search(r'<html[^>]*lang="([^"]+)"', src)
+              lang = (lm.group(1) if lm else 'fr').split('-')[0].lower()
               s = src
 
-              s, k = re.subn(r',\s*TG\s*=\s*"t\.me"', '', s); bump('tracking-var', k)
-              s, k = re.subn(r'\n[^\n]*indexOf\(TG\)[^\n]*', '', s); bump('tracking-branche', k)
+              def faq_fix(m):
+                  global nf
+                  head, inner, tail = m.group(1), m.group(2), m.group(3)
+                  if re.search(r'<p[\s>]', inner):
+                      return m.group(0)
+                  q = re.sub(r'<[^>]*>', '', inner)
+                  if 'site web' in q:
+                      txt = SITEWEB
+                  else:
+                      txt = ANS.get(lang, ANS['en'])
+                  nf += 1
+                  return head + inner + '<p>' + txt + '</p>' + tail
 
-              for pat, rep in HAND:
-                  s, k = re.subn(pat, rep, s, flags=re.S); bump('main', k)
+              def step_fix(m):
+                  global ns
+                  head, inner, tail = m.group(1), m.group(2), m.group(3)
+                  if re.search(r'<p[\s>]', inner):
+                      return m.group(0)
+                  h = re.sub(r'<[^>]*>', '', inner)
+                  if 'Fais la promo' in h:
+                      txt = PROMO
+                  else:
+                      txt = STEP.get(lang, STEP['en'])
+                  ns += 1
+                  return head + inner + '<p>' + txt + '</p>' + tail
 
-              s, k = re.subn(r'\s*(?:<!--[^>]*?-->\s*)?<section id="telegram">.*?</section>', '', s, flags=re.S)
-              bump('section', k)
+              s = FAQ.sub(faq_fix, s)
+              s = STP.sub(step_fix, s)
 
-              s, k = drop_blocks(s, 'span'); bump('span', k)
-              s, k = drop_blocks(s, 'li'); bump('li', k)
-              s, k = drop_blocks(s, 'div', need_class='card', skip_class='step'); bump('carte', k)
+              if s != src and APPLY:
+                  open(p, 'w', encoding='utf-8').write(s)
 
-              s, nb, npz = pass_anchors(s); bump('bouton', nb); bump('phrase', npz)
-
-              s, k = drop_blocks(s, 'p'); bump('p', k)
-
-              s, k = clean_ld(s); bump('jsonld', k)
-
-              for rx, rep in EMPTY:
-                  s = rx.sub(rep, s)
-
-              if HAS.search(s):
-                  for line in s.split('\n'):
-                      if HAS.search(line):
-                          txt = re.sub(r'<[^>]*>', ' ', line)
-                          txt = re.sub(r'https?:[^\s"\'<>]*', ' ', txt)
-                          txt = re.sub(r'\s+', ' ', txt).strip()
-                          residual.append(p + ' :: ' + txt[:110])
-
-              if s != src:
-                  touched += 1
-                  if APPLY:
-                      open(p, 'w', encoding='utf-8').write(s)
-
-          print('=== BZ RAPPORT ===')
-          print('mode        :', 'ECRITURE' if APPLY else 'SIMULATION')
-          print('fichiers    :', len(files))
-          print('modifies    :', touched)
-          for k in sorted(stats):
-              print('  %-18s %d' % (k, stats[k]))
-          print('restes      :', len(residual))
-          for r in residual[:60]:
-              print('  !', r)
+          print('=== BZ RAPPORT 2 ===')
+          print('mode  :', 'ECRITURE' if APPLY else 'SIMULATION')
+          print('faq rebouchees  :', nf)
+          print('etapes rebouchees:', ns)
           PYEOF
-          python3 /tmp/bz.py "${{ github.event.inputs.apply }}"
+          python3 /tmp/bz2.py "${{ github.event.inputs.apply }}"
       - name: Commit
         if: github.event.inputs.apply == 'true'
         run: |
           git config user.name "bz-bot"
           git config user.email "bz-bot@users.noreply.github.com"
           git add -A
-          git diff --cached --quiet || git commit -m "Retrait du canal Telegram : liens, boutons et mentions supprimes"
+          git diff --cached --quiet || git commit -m "Reboucher les blocs vides laisses par le retrait de Telegram"
           git push
