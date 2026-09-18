@@ -1,0 +1,197 @@
+name: BZ - brancher les langues
+on:
+  workflow_dispatch:
+    inputs:
+      apply:
+        description: "true = ecrire et commiter / false = rapport seul"
+        required: true
+        default: "false"
+permissions:
+  contents: write
+jobs:
+  intl:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Brancher
+        run: |
+          cat > /tmp/bz.py <<'PYEOF'
+          import os, re, sys
+
+          APPLY = (len(sys.argv) > 1 and sys.argv[1].strip().lower() == 'true')
+          SITE = 'https://betzonebet.com'
+
+          LANGS = ['ar','de','en','es','hi','ja','ms','nl','no','pl','pt','ro','ru','sv','th','tr','vi','zh']
+          NAMES = {'ar':'العربية','de':'Deutsch','en':'English','es':'Espanol','hi':'हिन्दी','ja':'日本語',
+                   'ms':'Melayu','nl':'Nederlands','no':'Norsk','pl':'Polski','pt':'Portugues','ro':'Romana',
+                   'ru':'Русский','sv':'Svenska','th':'ไทย','tr':'Turkce','vi':'Tieng Viet','zh':'中文'}
+          HOME_SRC = {'de':'loslegen.html','nl':'starten.html','pl':'zacznij.html','ro':'incepe.html'}
+          FALLBACK = ['start.html','1win-review.html','1win-russia.html','1win-erfahrungen.html',
+                      '1win-ervaringen.html','1win-opinie.html','1win-pareri.html']
+
+          log = []
+          created = []
+          sources = set()
+
+          # ---------- 1. une page d'accueil par langue ----------
+          for l in LANGS:
+              idx = l + '/index.html'
+              if os.path.exists(idx):
+                  continue
+              cands = []
+              if l in HOME_SRC:
+                  cands.append(HOME_SRC[l])
+              cands += FALLBACK
+              src = None
+              for c in cands:
+                  if os.path.exists(l + '/' + c):
+                      src = l + '/' + c
+                      break
+              if not src:
+                  log.append('PAS DE SOURCE pour ' + l)
+                  continue
+              s = open(src, encoding='utf-8').read()
+              s2 = re.sub(r'(<link rel="canonical" href=")[^"]*(")',
+                          r'\g<1>' + SITE + '/' + l + '/index.html' + r'\g<2>', s, count=1)
+              if APPLY:
+                  open(idx, 'w', encoding='utf-8').write(s2)
+                  # la page source pointe desormais vers l'accueil
+                  s3 = re.sub(r'(<link rel="canonical" href=")[^"]*(")',
+                              r'\g<1>' + SITE + '/' + l + '/index.html' + r'\g<2>', s, count=1)
+                  open(src, 'w', encoding='utf-8').write(s3)
+              created.append(l + ' <- ' + src)
+              sources.add(src)
+
+          # les sources deja existantes pour les langues qui avaient un index
+          for l in LANGS:
+              for c in [HOME_SRC.get(l)] + FALLBACK:
+                  if c and os.path.exists(l + '/' + c) and os.path.exists(l + '/index.html'):
+                      if c == 'start.html':
+                          sources.add(l + '/' + c)
+                      break
+
+          # ---------- 2. hreflang complet sur chaque accueil ----------
+          alts = [('fr', SITE + '/')]
+          for l in LANGS:
+              if os.path.exists(l + '/index.html'):
+                  alts.append((l, SITE + '/' + l + '/index.html'))
+          block = '\n'.join('<link rel="alternate" hreflang="%s" href="%s">' % (c, u) for c, u in alts)
+          block += '\n<link rel="alternate" hreflang="x-default" href="' + SITE + '/">'
+
+          homes = ['index.html'] + [l + '/index.html' for l in LANGS if os.path.exists(l + '/index.html')]
+          hl_done = 0
+          for p in homes:
+              if not os.path.exists(p):
+                  continue
+              s = open(p, encoding='utf-8').read()
+              s2 = re.sub(r'[ \t]*<link rel="alternate"[^>]*>\n?', '', s)
+              m = re.search(r'<link rel="canonical"[^>]*>', s2)
+              if not m:
+                  log.append('PAS DE CANONICAL dans ' + p)
+                  continue
+              s2 = s2[:m.end()] + '\n' + block + s2[m.end():]
+              if s2 != s:
+                  hl_done += 1
+                  if APPLY:
+                      open(p, 'w', encoding='utf-8').write(s2)
+
+          # ---------- 3. sitemap complet ----------
+          SKIP_DIRS = ('.git', '.github')
+          def skip(p):
+              n = os.path.basename(p)
+              if n == '404.html':
+                  return True
+              if n.startswith('google') and len(n) > 20:
+                  return True
+              if 'archive' in n:
+                  return True
+              if p in sources:
+                  return True
+              return False
+
+          pages = []
+          for root, dirs, names in os.walk('.'):
+              dirs[:] = [d for d in dirs if d not in SKIP_DIRS]
+              for nm in names:
+                  if not nm.endswith('.html'):
+                      continue
+                  p = os.path.join(root, nm)[2:]
+                  if skip(p):
+                      continue
+                  pages.append(p)
+          pages.sort()
+
+          def url_of(p):
+              if p == 'index.html':
+                  return SITE + '/'
+              return SITE + '/' + p
+
+          def prio(p):
+              if p == 'index.html':
+                  return '1.0'
+              if p.endswith('/index.html'):
+                  return '0.9'
+              if p.startswith('world/') or p.startswith('blog/'):
+                  return '0.7'
+              return '0.8'
+
+          out = ['<?xml version="1.0" encoding="UTF-8"?>',
+                 '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
+          for p in pages:
+              out.append('  <url>')
+              out.append('    <loc>' + url_of(p) + '</loc>')
+              out.append('    <lastmod>2026-09-18</lastmod>')
+              out.append('    <changefreq>monthly</changefreq>')
+              out.append('    <priority>' + prio(p) + '</priority>')
+              out.append('  </url>')
+          out.append('</urlset>')
+          sm = '\n'.join(out) + '\n'
+          if APPLY:
+              open('sitemap.xml', 'w', encoding='utf-8').write(sm)
+
+          # ---------- 4. selecteur de langue sur les accueils ----------
+          links = ['<a href="' + SITE + '/">Francais</a>']
+          for l in LANGS:
+              if os.path.exists(l + '/index.html'):
+                  links.append('<a href="/' + l + '/index.html" hreflang="' + l + '">' + NAMES[l] + '</a>')
+          nav = '<p class="links" id="bz-langs">' + ' '.join(links) + '</p>'
+          sw = 0
+          for p in homes:
+              if not os.path.exists(p):
+                  continue
+              s = open(p, encoding='utf-8').read()
+              s = re.sub(r'<p class="links" id="bz-langs">.*?</p>', '', s, flags=re.S)
+              i = s.rfind('</footer>')
+              if i < 0:
+                  log.append('PAS DE FOOTER dans ' + p)
+                  continue
+              j = s.rfind('</div>', 0, i)
+              pos = j if j > 0 else i
+              s2 = s[:pos] + nav + s[pos:]
+              sw += 1
+              if APPLY:
+                  open(p, 'w', encoding='utf-8').write(s2)
+
+          print('=== BZ INTL ===')
+          print('mode              :', 'ECRITURE' if APPLY else 'SIMULATION')
+          print('accueils crees    :', len(created))
+          for c in created:
+              print('   +', c)
+          print('hreflang poses    :', hl_done, 'accueils')
+          print('alternates par page:', len(alts) + 1)
+          print('selecteur langue  :', sw, 'accueils')
+          print('sitemap URLs      :', len(pages))
+          print('  dont accueils   :', len([p for p in pages if p.endswith('index.html')]))
+          print('avertissements    :', len(log))
+          for w in log[:20]:
+              print('  !', w)
+          PYEOF
+          python3 /tmp/bz.py "${{ github.event.inputs.apply }}"
+      - name: Commit
+        if: github.event.inputs.apply == 'true'
+        run: |
+          git config user.name "bz-bot"
+          git config user.email "bz-bot@users.noreply.github.com"
+          git add -A
+          git diff --cached --quiet || git commit -m "International : accueil par langue, hreflang complet, sitemap complet"
+          git push
