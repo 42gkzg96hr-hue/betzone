@@ -1,0 +1,77 @@
+name: BZ - nouveau lien affilie
+on:
+  workflow_dispatch:
+    inputs:
+      apply:
+        description: "true = ecrire et commiter / false = rapport seul"
+        required: true
+        default: "false"
+permissions:
+  contents: write
+jobs:
+  swap:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Remplacement
+        run: |
+          cat > /tmp/bz.py <<'PYEOF'
+          import os, sys
+
+          APPLY = (len(sys.argv) > 1 and sys.argv[1].strip().lower() == 'true')
+          OLD = '83221967'
+          NEW = 'a70f80'
+          EXT = ('.html', '.htm', '.xml', '.json', '.txt', '.md', '.js', '.css')
+          SKIP_DIRS = ('.git', '.github')
+
+          files = []
+          for root, dirs, names in os.walk('.'):
+              dirs[:] = [d for d in dirs if d not in SKIP_DIRS]
+              for nm in names:
+                  if nm.lower().endswith(EXT):
+                      files.append(os.path.join(root, nm))
+          files.sort()
+
+          touched = 0
+          total = 0
+          per_dir = {}
+          residual = []
+          for p in files:
+              try:
+                  src = open(p, encoding='utf-8').read()
+              except Exception:
+                  continue
+              n = src.count('lkgp.pro/' + OLD)
+              if not n:
+                  continue
+              s = src.replace('lkgp.pro/' + OLD, 'lkgp.pro/' + NEW)
+              if OLD in s:
+                  residual.append(p)
+              touched += 1
+              total += n
+              d = p.split('/')[1] if p.count('/') > 1 else 'racine'
+              per_dir[d] = per_dir.get(d, 0) + n
+              if APPLY:
+                  open(p, 'w', encoding='utf-8').write(s)
+
+          print('=== BZ LIEN ===')
+          print('mode        :', 'ECRITURE' if APPLY else 'SIMULATION')
+          print('fichiers scannes :', len(files))
+          print('fichiers touches :', touched)
+          print('occurrences      :', total)
+          print('--- par dossier ---')
+          for k in sorted(per_dir):
+              print('  %-14s %d' % (k, per_dir[k]))
+          print('restes 83221967  :', len(residual))
+          for r in residual[:20]:
+              print('  !', r)
+          PYEOF
+          python3 /tmp/bz.py "${{ github.event.inputs.apply }}"
+      - name: Commit
+        if: github.event.inputs.apply == 'true'
+        run: |
+          git config user.name "bz-bot"
+          git config user.email "bz-bot@users.noreply.github.com"
+          git add -A
+          git diff --cached --quiet || git commit -m "Nouveau lien affilie 1win"
+          git push
