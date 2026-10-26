@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculateur de marge du bookmaker | BetZone</title>
+<meta name="description" content="Entrez les cotes d'un 1N2 ou d'un marche a deux issues : probabilites implicites, marge du bookmaker et cotes justes sans marge. Outil gratuit, calcul explique.">
+<link rel="canonical" href="https://betzonebet.com/calculateur-marge-bookmaker.html">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta property="og:title" content="Pronos gratuits — BetZone | Analyses IA multisports">
+<meta property="og:description" content="Nos analyses IA de pronos multisports : méthode, confiance et gestion de bankroll. Code Saphir1. 18+, jouez responsable.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://betzonebet.com/calculateur-marge-bookmaker.html">
+<meta property="og:site_name" content="BetZone">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://betzonebet.com/calculateur-marge-bookmaker.html#webpage","url":"https://betzonebet.com/calculateur-marge-bookmaker.html","name":"Pronos gratuits — BetZone","inLanguage":"fr"},{"@type":"FAQPage","@id":"https://betzonebet.com/calculateur-marge-bookmaker.html#faq","mainEntity":[{"@type":"Question","name":"Les pronos sont-ils garantis ?","acceptedAnswer":{"@type":"Answer","text":"Non. Ce sont des analyses probabilistes, jamais des gains garantis. Quiconque promet des gains certains ment."}},{"@type":"Question","name":"Comment recevoir les pronos détaillés ?","acceptedAnswer":{"@type":"Answer","text":"Inscris-toi sur 1win avec le code Saphir1 et fais ton depot."}},{"@type":"Question","name":"C'est quoi un value bet ?","acceptedAnswer":{"@type":"Answer","text":"Un pari où ta probabilité estimée dépasse celle qu'implique la cote du bookmaker. Sur la durée, seuls les paris à valeur positive sont rentables."}}]}]}</script>
+<style>
+:root{--navy:#0a0f28;--navy2:#131b3f;--gold:#deb23e;--gold2:#f0cd6e;--txt:#eef0f7;--grey:#9aa3c0;--card:#141c42;--green:#3ddc84;--red:#ff5c5c}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--navy);color:var(--txt);font-family:'Inter',system-ui,-apple-system,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased;letter-spacing:-.01em;padding-bottom:64px}
+h1,h2,h3{font-family:'Space Grotesk','Inter',sans-serif;letter-spacing:-.02em}
+a{color:var(--gold);text-decoration:none;transition:color .18s ease}
+::selection{background:var(--gold);color:#0a0f28}
+html{scroll-behavior:smooth}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+header{background:rgba(10,15,40,.9);backdrop-filter:blur(9px);-webkit-backdrop-filter:blur(9px);border-bottom:1px solid #232c55;position:sticky;top:0;z-index:10}
+.nav{display:flex;align-items:center;gap:18px;padding:13px 0;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.25rem;color:var(--txt)}
+.logo .bz{width:38px;height:38px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#1b2a6b,#0a0f28);border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:.85rem;font-weight:900;box-shadow:0 0 16px rgba(222,178,62,.35)}
+.nav a.item{color:var(--grey);font-weight:600;font-size:.95rem;padding:6px 2px}
+.nav a.item:hover,.nav a.item.on{color:var(--gold)}
+.btn{display:inline-block;background:linear-gradient(135deg,var(--gold),var(--gold2));color:#14183a;font-weight:800;padding:13px 26px;border-radius:10px;font-size:1rem;box-shadow:0 6px 20px rgba(222,178,62,.24);transition:transform .16s ease,box-shadow .16s ease}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(222,178,62,.38)}
+.btn.o{background:none;border:2px solid var(--gold);color:var(--gold);box-shadow:none;margin-left:8px}
+.btn.o:hover{background:rgba(222,178,62,.12)}
+.btn.sm{padding:9px 18px;font-size:.9rem}
+.badge{display:inline-block;background:linear-gradient(135deg,#1c2650,#283481);color:var(--gold);font-size:.72rem;font-weight:700;padding:4px 12px;border-radius:20px;letter-spacing:.5px;box-shadow:inset 0 0 0 1px rgba(222,178,62,.28)}
+.hero{position:relative;overflow:hidden;padding:52px 0 38px;text-align:center}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(620px 320px at 18% -12%,rgba(222,178,62,.14),transparent 60%),radial-gradient(520px 280px at 92% -4%,rgba(96,64,190,.22),transparent 62%);pointer-events:none;z-index:0}
+.hero .wrap{position:relative;z-index:1}
+.hero h1{font-size:clamp(1.8rem,4.6vw,2.8rem);font-weight:900;margin:14px 0 12px}
+.hero h1 span{color:var(--gold)}
+.hero p.lede{color:var(--grey);max-width:680px;margin:0 auto 24px;font-size:1.05rem}
+.cta-row{display:flex;gap:6px;justify-content:center;flex-wrap:wrap}
+section{padding:32px 0}
+h2.sec{font-size:1.5rem;font-weight:800;margin-bottom:6px}
+h2.sec span{color:var(--gold)}
+.sub{color:var(--grey);margin-bottom:22px;font-size:.96rem;max-width:700px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px;margin:22px 0}
+.card{background:var(--card);border:1px solid #222b57;border-radius:14px;padding:22px;transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease}
+.card:hover{transform:translateY(-4px);border-color:rgba(222,178,62,.5);box-shadow:0 14px 34px rgba(0,0,0,.42)}
+.card .em{font-size:1.7rem;margin-bottom:10px;display:block}
+.card h3{color:var(--gold);margin-bottom:8px;font-size:1.06rem}
+.card p{color:var(--grey);font-size:.93rem}
+.step .n{width:34px;height:34px;border-radius:50%;background:rgba(222,178,62,.14);border:1px solid var(--gold);color:var(--gold);display:inline-flex;align-items:center;justify-content:center;font-weight:900;margin-bottom:10px}
+.cta{position:relative;overflow:hidden;background:linear-gradient(135deg,#141c42,#1a2450);border:1px solid #2a3568;border-radius:16px;padding:30px;margin:22px 0;box-shadow:0 18px 50px rgba(0,0,0,.45)}
+.cta::after{content:"";position:absolute;inset:0;background:radial-gradient(520px 210px at 50% -22%,rgba(222,178,62,.16),transparent 60%);pointer-events:none}
+.cta *{position:relative}
+.cta h3{font-size:1.4rem;margin:10px 0 6px}
+.cta p{color:var(--grey);max-width:700px}
+.cta.center{text-align:center}
+.cta .code{background:#0a0f28;border:1px dashed var(--gold);border-radius:8px;padding:8px 18px;display:inline-block;margin:16px 0;font-weight:800;color:var(--gold);letter-spacing:1px}
+.warn{background:#1c1430;border:1px solid #3a2a5a;border-radius:12px;padding:16px 20px;font-size:.88rem;color:#c9b8e8;margin:22px 0}
+.note{font-size:.85rem;color:var(--grey)}
+.tool{background:#0e1730;border:1px solid #23407a;border-radius:12px;padding:18px 20px;margin:18px 0}
+.tool h3{color:var(--gold);margin:0 0 10px;font-size:1.05rem}
+.tool input{flex:1;min-width:120px;padding:10px;border-radius:8px;border:1px solid #2a3a6a;background:#0a0f28;color:#eef0f7}
+.tool button{padding:10px 18px;border:none;border-radius:8px;background:linear-gradient(135deg,#deb23e,#f0cd6e);color:#14183a;font-weight:800;cursor:pointer}
+footer{border-top:1px solid #232c55;padding:30px 0 40px;margin-top:20px}
+footer p{color:var(--grey);font-size:.82rem;margin-bottom:8px}
+footer .links a{margin-right:16px;font-size:.85rem}
+.age{display:inline-block;background:var(--red);color:#fff;font-weight:900;border-radius:6px;padding:2px 8px;font-size:.8rem;margin-right:8px}
+#gtranslate{position:fixed;bottom:132px;right:14px;z-index:9997;background:#141c42;border:1px solid #deb23e;border-radius:10px;padding:6px 9px;box-shadow:0 4px 14px rgba(0,0,0,.45);display:flex;align-items:center;gap:6px}
+#gtranslate .lbl{color:#deb23e;font-size:.82rem;font-weight:700}
+#gtranslate .goog-te-combo{color:#0a0f28;font-weight:700;border:none;border-radius:6px;padding:4px 6px;font-size:.9rem;max-width:150px}
+.goog-te-banner-frame,.goog-logo-link,.goog-te-gadget span,.skiptranslate iframe{display:none!important}body{top:0!important}
+#stickycta{position:fixed;left:0;right:0;bottom:0;z-index:9998;background:linear-gradient(135deg,#141c42,#1a2450);border-top:1px solid #deb23e;display:flex;align-items:center;justify-content:center;gap:14px;padding:10px 16px;flex-wrap:wrap;box-shadow:0 -4px 18px rgba(0,0,0,.5)}
+#stickycta .t{color:#fff;font-weight:700;font-size:.92rem}#stickycta .t b{color:#deb23e}
+#stickycta a{display:inline-block;background:linear-gradient(135deg,#deb23e,#f0cd6e);color:#14183a;font-weight:800;padding:9px 20px;border-radius:10px;font-size:.95rem}
+@media(max-width:600px){.hero{padding:32px 0 28px}}
+
+/* bz-uifix-nav-btn */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;vertical-align:middle;line-height:1.2;box-sizing:border-box;text-align:center}
+.btn.o{padding:11px 24px;margin-left:0}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;align-items:stretch}
+.cta-row .btn{margin:0}
+.cta .btn{margin:5px 6px}
+.nav a.item{white-space:nowrap}
+</style>
+<script data-goatcounter="https://betzone.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, document, "clarity", "script", "y3y7q4e8st");</script>
+<script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+<script>window.OneSignalDeferred=window.OneSignalDeferred||[];OneSignalDeferred.push(async function(OneSignal){await OneSignal.init({appId:"1625bc81-029f-4061-a1d7-d356cd4abaef"});});</script>
+<!--bz-speed-v1--><link rel="preconnect" href="https://cdn.onesignal.com" crossorigin><link rel="dns-prefetch" href="https://embed.tawk.to"><link rel="dns-prefetch" href="https://translate.google.com"><link rel="dns-prefetch" href="https://gc.zgo.at"><link rel="dns-prefetch" href="https://www.clarity.ms"><!--bz-polish-v1--><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet"><style>
+/* ============ BetZone · finition visuelle v1 ============ */
+:root{--bz-emoji:"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji","Twemoji Mozilla";
+      --bz-sans:'Inter',system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+      --bz-head:'Space Grotesk','Inter',system-ui,sans-serif}
+
+/* -- 1. Typographie : emoji en couleur partout (fini les carrés gris) -- */
+body,.btn,.item,.card,.trust,.cta,.faq,.step,#stickycta,.badge,footer,article{
+  font-family:var(--bz-sans),var(--bz-emoji)!important}
+h1,h2,h3,h4,.sec,.hero h1,.logo{font-family:var(--bz-head),var(--bz-emoji)!important;letter-spacing:-.02em}
+.em,.card .em{font-family:var(--bz-emoji),var(--bz-sans)!important;line-height:1}
+body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+
+/* -- 2. Grilles : plus d'orpheline toute seule en bout de ligne -- */
+.grid{align-items:stretch}
+.grid>*{display:flex;flex-direction:column;min-width:0}
+.grid>*>p:last-child{margin-bottom:0}
+@media(min-width:820px){
+  .grid:has(>:nth-child(4):last-child){grid-template-columns:repeat(2,minmax(0,1fr))}
+  .grid:has(>:nth-child(2):last-child){grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(min-width:1000px){
+  .grid:has(>:nth-child(3):last-child){grid-template-columns:repeat(3,minmax(0,1fr))}
+  .grid:has(>:nth-child(6):last-child){grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+
+/* -- 3. Rythme vertical : sections mieux séparées, titres mieux ancrés -- */
+section{padding:44px 0}
+section+section{border-top:1px solid rgba(35,44,85,.55)}
+h2.sec,h2{scroll-margin-top:90px}
+h2.sec{font-size:clamp(1.45rem,2.6vw,1.85rem);line-height:1.22;margin-bottom:10px}
+.sub{margin-bottom:26px;line-height:1.6}
+
+/* -- 4. Hero : moins de vide, le contenu remonte au-dessus de la ligne de flottaison -- */
+.hero{padding-top:38px!important;padding-bottom:26px!important}
+.hero h1{line-height:1.14;margin-bottom:14px}
+.hero .lede{margin-bottom:24px}
+.cta-row{gap:12px!important;margin-top:4px}
+.trust{margin-top:22px!important;gap:10px 22px!important}
+
+/* -- 5. Cartes & boutons : relief cohérent -- */
+.card{box-shadow:0 2px 10px rgba(0,0,0,.18)}
+.card:hover{transform:translateY(-4px);border-color:rgba(222,178,62,.55);
+  box-shadow:0 16px 36px rgba(0,0,0,.45)}
+.btn{transition:transform .16s ease,box-shadow .16s ease,filter .16s ease;
+  box-shadow:0 6px 18px rgba(222,178,62,.20)}
+.btn:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(222,178,62,.34)}
+.btn.o{box-shadow:none}.btn.o:hover{background:rgba(222,178,62,.12);box-shadow:none}
+.btn.tg{box-shadow:0 6px 18px rgba(34,158,217,.24)}
+.btn.tg:hover{box-shadow:0 12px 28px rgba(34,158,217,.38)}
+.faq:hover{border-color:rgba(222,178,62,.42)}
+a,.item{transition:color .16s ease}
+:focus-visible{outline:2px solid var(--gold,#deb23e);outline-offset:3px;border-radius:6px}
+::selection{background:var(--gold,#deb23e);color:#0a0f28}
+html{scroll-behavior:smooth}
+header{backdrop-filter:blur(9px);-webkit-backdrop-filter:blur(9px)}
+.logo .bz{box-shadow:0 0 16px rgba(222,178,62,.32)}
+.badge{box-shadow:inset 0 0 0 1px rgba(222,178,62,.26)}
+img{max-width:100%;height:auto}
+table{display:block;overflow-x:auto;white-space:nowrap}
+@media(min-width:700px){table{display:table;white-space:normal}}
+
+/* -- 6. Widgets flottants : plus aucun chevauchement -- */
+/* Sélecteur de langue : pastille discrète en bas à gauche, qui s'ouvre au survol */
+#gtranslate{left:14px!important;right:auto!important;bottom:74px!important;z-index:9996!important;
+  padding:0!important;gap:0!important;overflow:hidden;
+  width:38px;height:38px;border-radius:19px;justify-content:center;
+  transition:width .22s ease,border-radius .22s ease,background .22s ease}
+#gtranslate:hover,#gtranslate:focus-within{width:186px;border-radius:19px;padding:0 10px!important;
+  justify-content:flex-start;gap:7px!important}
+/* la pastille n'affiche que le globe : on neutralise le libellé texte */
+#gtranslate .lbl{flex:0 0 auto;font-size:0!important;line-height:1;width:18px;text-align:center}
+#gtranslate .lbl::before{content:"\1F310";font-size:1.05rem;line-height:1;
+  font-family:var(--bz-emoji),sans-serif}
+#gtranslate #google_translate_element{opacity:0;width:0;transition:opacity .18s ease .04s}
+#gtranslate:hover #google_translate_element,
+#gtranslate:focus-within #google_translate_element{opacity:1;width:auto}
+/* on masque le « Fourni par Google » et on compacte le menu */
+#gtranslate .goog-te-gadget{font-size:0!important;line-height:0!important;color:transparent!important}
+#gtranslate .goog-te-gadget>span,#gtranslate .goog-te-gadget a{display:none!important}
+#gtranslate .goog-te-combo{font-size:.82rem!important;line-height:normal!important;
+  max-width:132px;margin:0!important;padding:4px 6px!important}
+/* le chat Tawk remonte au-dessus de la barre CTA */
+iframe[title*="chat" i]{bottom:74px!important;z-index:9997!important}
+/* barre CTA collante : au-dessus de tout, hauteur maîtrisée */
+#stickycta{z-index:9999!important;padding:9px 16px!important;gap:12px!important}
+#stickycta .t{font-size:.9rem}
+body{padding-bottom:64px!important}
+@media(max-width:600px){
+  #gtranslate{bottom:70px!important;left:10px!important;width:34px;height:34px;border-radius:17px}
+  #gtranslate:hover,#gtranslate:focus-within{width:172px}
+  iframe[title*="chat" i]{bottom:70px!important}
+  #stickycta{padding:8px 12px!important}
+  #stickycta .t{font-size:.82rem}
+  .hero{padding-top:26px!important}
+  section{padding:32px 0}
+}
+</style><script>
+window.Tawk_API=window.Tawk_API||{};
+window.Tawk_API.customStyle={visibility:{
+  desktop:{position:'br',xOffset:20,yOffset:74},
+  mobile:{position:'br',xOffset:10,yOffset:70}}};
+</script><!--bz-meta-v1--><link rel="icon" href="https://betzonebet.com/favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="https://betzonebet.com/favicon-32.png"><link rel="icon" type="image/png" sizes="16x16" href="https://betzonebet.com/favicon-16.png"><link rel="apple-touch-icon" href="https://betzonebet.com/apple-touch-icon.png"><meta name="theme-color" content="#0a0f28"><meta property="og:locale" content="fr"><meta property="og:image" content="https://betzonebet.com/img/og-methode.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Pronos gratuits — BetZone | Analyses IA foot, F1, UFC, tennis, basket"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Pronos gratuits — BetZone | Analyses IA foot, F1, UFC, tennis, basket"><meta name="twitter:image" content="https://betzonebet.com/img/og-methode.png"><meta name="twitter:description" content="Pronos gratuits multisports analysés par IA : football, F1, UFC, tennis, basket. Méthode, indice de confiance, gestion de bankroll. Analyses probabilistes, aucun gain garanti. 18+."><!--/bz-meta-v1--></head></head>
+<body>
+<header>
+  <div class="wrap">
+    <nav class="nav">
+      <a href="index.html" class="logo"><span class="bz">BZ</span> BetZone</a>
+      <a href="index.html" class="item">Accueil</a>
+      <a href="pronos.html" class="item on">Pronos</a>
+      <a href="casino.html" class="item">Casino</a>
+      <a href="code-promo-1win.html" class="item">Bonus</a>
+      <a href="blog/index.html" class="item">Blog</a>
+      <a href="actualites/index.html" class="item">Actualités</a>
+      <a href="guides.html" class="item">Guides</a>
+      <a href="devenir-partenaire.html" class="item">Partenaires</a>
+      <a href="https://lkus.cc/0b668025" rel="sponsored noopener" target="_blank" class="btn sm" style="margin-left:auto">S'inscrire &#10148;</a>
+    </nav>
+  </div>
+</header>
+<div class="wrap">
+<div class="hero">
+<span class="badge">OUTIL GRATUIT &middot; MARGE DU BOOKMAKER</span>
+<h1>Calculateur de marge du bookmaker</h1>
+<p class="lede">Entre les cotes d'un marche : l'outil calcule les probabilites implicites, la marge que le bookmaker y a integree, et les cotes justes sans marge. C'est le prelevement que tu paies sur chaque pari, et presque personne ne te le montre.</p>
+</div>
+<div class="sec">
+<h2>Entre tes cotes</h2>
+<div class="card" style="padding:20px">
+<div style="display:flex;flex-wrap:wrap;gap:14px;align-items:flex-end">
+<label style="font:600 13px system-ui;color:#9aa3c0">Victoire 1<br><input id="bzC1" type="number" step="0.01" min="1.01" value="2.10" style="margin-top:6px;width:110px;padding:10px;border-radius:8px;border:1px solid rgba(222,178,62,.35);background:#0a0f28;color:#eef0f7;font:600 16px system-ui"></label>
+<label style="font:600 13px system-ui;color:#9aa3c0">Nul (laisser vide si 2 issues)<br><input id="bzCN" type="number" step="0.01" min="1.01" value="3.40" style="margin-top:6px;width:170px;padding:10px;border-radius:8px;border:1px solid rgba(222,178,62,.35);background:#0a0f28;color:#eef0f7;font:600 16px system-ui"></label>
+<label style="font:600 13px system-ui;color:#9aa3c0">Victoire 2<br><input id="bzC2" type="number" step="0.01" min="1.01" value="3.80" style="margin-top:6px;width:110px;padding:10px;border-radius:8px;border:1px solid rgba(222,178,62,.35);background:#0a0f28;color:#eef0f7;font:600 16px system-ui"></label>
+<button id="bzGo" type="button" class="btn" style="cursor:pointer;border:0">Calculer</button>
+</div>
+<div id="bzOut" style="margin-top:18px;font:400 15px/1.7 system-ui;color:#eef0f7"></div>
+</div>
+<p class="note">Le calcul est fait dans ton navigateur. Aucune donnee n'est envoyee ni conservee.</p>
+</div>
+<div class="sec">
+<h2>Ce que la marge veut dire, concretement</h2>
+<p>Une cote decimale se convertit en probabilite implicite en divisant 1 par la cote. Une cote de 2.00 implique 50 %, une cote de 4.00 implique 25 %.</p>
+<p>Si tu additionnes les probabilites implicites de toutes les issues d'un marche, le total devrait faire 100 % dans un monde sans operateur. Il fait toujours <b>plus</b> de 100 %. Cet exces est la marge, aussi appelee <i>overround</i> ou vigorish.</p>
+<p>Elle n'est pas prelevee sur tes gains ni sur ton retrait : elle est <b>deja dans la cote</b> au moment ou tu mises. Tu la paies sur chaque pari, gagnant ou perdant, sans jamais la voir sur ton releve.</p>
+</div>
+<div class="sec">
+<h2>Un exemple chiffre</h2>
+<p>Prenons un 1N2 affiche a <b>2.10 / 3.40 / 3.80</b>.</p>
+<p>Les probabilites implicites sont 1/2.10 = 47,6 %, 1/3.40 = 29,4 % et 1/3.80 = 26,3 %. Leur somme fait <b>103,3 %</b>. Les 3,3 % en trop sont la marge.</p>
+<p>Les cotes justes, une fois la marge retiree, seraient de 2.17, 3.51 et 3.93. Autrement dit, sur une issue que tu estimes a 47,6 %, l'operateur te paie 2.10 alors que le prix equitable serait 2.17.</p>
+<p>Sur un pari isole, l'ecart parait minuscule. Sur deux cents paris, c'est lui qui decide si tu finis au-dessus ou en dessous de zero.</p>
+</div>
+<div class="sec">
+<h2>Pourquoi la marge n'est pas la meme partout</h2>
+<p>Elle varie selon trois choses, et c'est verifiable avec le calculateur ci-dessus : le nombre d'issues, la liquidite du marche, et l'operateur.</p>
+<p>Plus un marche comporte d'issues, plus l'operateur a d'endroits ou loger sa marge : un score exact ou un buteur comporte mecaniquement plus de marge qu'un simple vainqueur. Un match tres suivi attire plus de volume et de concurrence, ce qui comprime la marge ; une division amateur ou un sport confidentiel la laisse grossir.</p>
+<p>Le reflexe utile est simple : avant de miser sur un marche exotique, calcule sa marge. Si elle depasse nettement celle du marche principal du meme match, tu sais exactement combien cette fantaisie te coute.</p>
+</div>
+<div class="sec">
+<h2>Ce que tu peux faire pour en payer moins</h2>
+<p><b>Comparer avant de miser.</b> Le meme pari a 1.90 chez l'un et 2.00 chez l'autre represente 5,3 % de rendement en plus sur la duree. Aucun pronostic ne t'apporte ca de facon fiable.</p>
+<p><b>Preferer les marches liquides.</b> Les marches principaux des grandes competitions portent moins de marge que les paris de niche.</p>
+<p><b>Se mefier des combines.</b> La marge se multiplie a chaque selection ajoutee. Un combine de cinq matchs porte cinq marges empilees, ce qui explique pourquoi les combines sont les paris preferes des operateurs.</p>
+</div>
+<div class="faq">
+<h2>Questions frequentes</h2>
+<h3>Une marge de combien est normale ?</h3>
+<p>Il n'existe pas de chiffre officiel et nous ne publierons pas de moyenne que nous ne pouvons pas sourcer. Le bon usage du calculateur est comparatif : mesure la marge sur le meme match chez plusieurs operateurs, et sur differents marches d'un meme match.</p>
+<h3>La marge se voit-elle sur mon releve ?</h3>
+<p>Non. Elle est integree a la cote avant que tu mises. C'est precisement ce qui la rend invisible et ce qui justifie de la calculer soi-meme.</p>
+<h3>Un pari a valeur positive est-il possible malgre la marge ?</h3>
+<p>Oui, mais seulement si ton estimation de probabilite depasse la probabilite implicite de la cote, marge comprise. C'est rare, et meme un pari a valeur positive perd souvent a court terme.</p>
+<h3>Cet outil fonctionne-t-il pour le tennis ou le basket ?</h3>
+<p>Oui. Laisse le champ du nul vide pour tout marche a deux issues : tennis, UFC, vainqueur de set, plus ou moins de points.</p>
+</div>
+<div class="related">
+<h2>Pour aller plus loin</h2>
+<p><a href="/blog/comprendre-les-cotes.html">Comprendre les cotes</a> &middot; <a href="/blog/value-bet-explication.html">Le value bet</a> &middot; <a href="/blog/comparateur-de-cotes.html">Comparer les cotes</a> &middot; <a href="/blog/paris-combines-guide.html">Les combines</a> &middot; <a href="/bilan.html">Notre bilan public</a></p>
+<p class="note"><b>18+</b> &middot; Analyses probabilistes, aucun gain garanti. Jouez responsable.</p>
+</div>
+</div>
+<script>
+(function(){var b=document.getElementById("bzGo");if(!b)return;
+function f(x){return (Math.round(x*100)/100).toFixed(2);}
+function p(x){return (Math.round(x*1000)/10).toFixed(1);}
+b.addEventListener("click",function(){
+var a=parseFloat(document.getElementById("bzC1").value),n=parseFloat(document.getElementById("bzCN").value),c=parseFloat(document.getElementById("bzC2").value);
+var cotes=[a];if(!isNaN(n)&&n>1)cotes.push(n);if(!isNaN(c)&&c>1)cotes.push(c);
+var o=document.getElementById("bzOut");
+if(cotes.length<2||cotes.some(function(x){return isNaN(x)||x<=1;})){o.innerHTML="<b>Entre au moins deux cotes superieures a 1.</b>";return;}
+var imp=cotes.map(function(x){return 1/x;});var tot=imp.reduce(function(s,x){return s+x;},0);
+var marge=(tot-1)*100;var justes=cotes.map(function(x){return x*tot;});
+var lignes=cotes.map(function(x,i){return "Cote "+f(x)+" &rarr; probabilite implicite <b>"+p(imp[i])+" %</b> &middot; cote juste <b>"+f(justes[i])+"</b>";}).join("<br>");
+o.innerHTML=lignes+"<br><br>Somme des probabilites implicites : <b>"+p(tot)+" %</b><br>Marge du bookmaker : <b style=\"color:#deb23e;font-size:20px\">"+(Math.round(marge*100)/100).toFixed(2)+" %</b><br><br>Sur 100 unites misees sur ce marche, environ "+(Math.round(marge*100)/100).toFixed(2)+" reviennent a l'operateur avant meme que le match commence.";
+});})();
+</script>
+<footer>
+  <div class="wrap">
+    <p><span class="age">18+</span><b>Jouez responsable.</b> Le jeu comporte des risques : endettement, isolement, dépendance. Ne jouez que ce que vous pouvez vous permettre de perdre.</p>
+    <p>Divulgation : ce site contient des liens d'affiliation. Nous pouvons percevoir une commission si vous vous inscrivez via nos liens, sans surcoût pour vous. Nos analyses restent indépendantes et aucun pronostic ne garantit un gain.</p>
+    <p>Contenu destiné aux marchés où les paris en ligne sont autorisés. Vérifiez votre réglementation locale.</p>
+    <p class="links"><a href="index.html">Accueil</a><a href="pronos.html">Pronos</a><a href="casino.html">Casino</a><a href="code-promo-1win.html">Bonus</a><a href="blog/index.html">Blog</a><a href="guides.html">Guides</a><a href="a-propos.html">À propos</a><a href="contact.html">Contact</a><a href="jeu-responsable.html">Jeu responsable</a><a href="mentions-legales.html">Mentions légales</a><a href="confidentialite.html">Confidentialité</a></p>
+    <p>&copy; 2026 BetZone — Pronos & analyses sportives.</p>
+  </div>
+</footer>
+
+<div id="gtranslate"><span class="lbl">🌐 Langue</span></div>
+<script>function googleTranslateElementInit(){new google.translate.TranslateElement({pageLanguage:"fr",autoDisplay:false},'google_translate_element');}</script>
+<script>(function(){function bzLoadTr(){var s=document.createElement("script");s.src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";s.async=true;document.body.appendChild(s);}if(window.requestIdleCallback){window.addEventListener("load",function(){requestIdleCallback(bzLoadTr,{timeout:3000})})}else{window.addEventListener("load",function(){setTimeout(bzLoadTr,1200)})}})();</script>
+
+<div id="stickycta"><span class="t">🎁 Bonus de bienvenue avec le code <b>Saphir1</b></span><a href="https://lkus.cc/0b668025" rel="sponsored noopener" target="_blank">S'inscrire →</a></div>
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+/*bz-tawk-lazy*/var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/6a836be00557671d48a6431c/1k08lqpu3';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+<!--bz-afftrack-v1-->
+<script>
+(function(){
+  var AFF="lkgp.pro";
+  function slug(){var p=location.pathname.replace(/^\//,'')||'home';return p.replace(/\.html$/,'')||'home';}
+  function send(kind,dest){
+    var page=slug(), label=kind+'/'+page;
+    // GoatCounter
+    try{ if(window.goatcounter&&goatcounter.count){ goatcounter.count({path:'click-'+label,title:'CLICK '+kind+' — '+page,event:true}); } }catch(e){}
+    // Microsoft Clarity : tag + event
+    try{ if(window.clarity){ clarity('set','aff_click',label); clarity('event','click_'+kind); } }catch(e){}
+    // Google Analytics 4 (si présent un jour)
+    try{ if(window.gtag){ gtag('event','affiliate_click',{link_type:kind,page_slug:page,destination:dest}); } }catch(e){}
+    // mémo local : compteur par page (visible en console via bzStats())
+    try{ var k='bz_clicks', d=JSON.parse(localStorage.getItem(k)||'{}'); d[label]=(d[label]||0)+1; localStorage.setItem(k,JSON.stringify(d)); }catch(e){}
+  }
+  document.addEventListener('click',function(ev){
+    var a=ev.target&&ev.target.closest?ev.target.closest('a'):null;
+    if(!a||!a.href) return;
+    if(a.href.indexOf(AFF)>-1) send('affiliate',a.href);
+  },true);
+  window.bzStats=function(){try{return JSON.parse(localStorage.getItem('bz_clicks')||'{}')}catch(e){return{}}};
+})();
+</script>
+</body>
+</html>
