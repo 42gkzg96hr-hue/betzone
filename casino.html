@@ -549,7 +549,7 @@ s0.parentNode.insertBefore(s1,s0);
 <!--bz-afftrack-v1-->
 <script>
 (function(){
-  var AFF="lkgp.pro";
+  var AFF=/lk(vq|us|fv|uy|iv|gp)\.(cc|pro)/i;
   function slug(){var p=location.pathname.replace(/^\//,'')||'home';return p.replace(/\.html$/,'')||'home';}
   function send(kind,dest){
     var page=slug(), label=kind+'/'+page;
@@ -565,7 +565,7 @@ s0.parentNode.insertBefore(s1,s0);
   document.addEventListener('click',function(ev){
     var a=ev.target&&ev.target.closest?ev.target.closest('a'):null;
     if(!a||!a.href) return;
-    if(a.href.indexOf(AFF)>-1) send('affiliate',a.href);
+    if(AFF.test(a.href)) send('affiliate',a.href);
   },true);
   window.bzStats=function(){try{return JSON.parse(localStorage.getItem('bz_clicks')||'{}')}catch(e){return{}}};
 })();
